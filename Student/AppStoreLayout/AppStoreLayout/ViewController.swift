@@ -43,7 +43,14 @@ class ViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout {( sectionIndex, layoutEnvironment ) -> NSCollectionLayoutSection? in
             
             let section = self.sections[sectionIndex]
+            let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(44))
+            let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: SupplementaryViewKind.header, alignment: .top)
+            let lineItemHeight = 1 / layoutEnvironment.traitCollection.displayScale
+            let lineItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(lineItemHeight))
             
+            let topLine = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.topLine, alignment: .top)
+            let bottomLine = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.bottomLine, alignment: .bottom)
+            let supplementaryContentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
             
             switch section {
             case .promoted:
@@ -55,7 +62,7 @@ class ViewController: UIViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
-                
+                section.boundarySupplementaryItems = [topLine, bottomLine]
                 return section
                 
             case .standard:
@@ -63,10 +70,17 @@ class ViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
                 
+                
+                
+                headerItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
+    
                 let groupSize  = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(250))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 3)
                 let section = NSCollectionLayoutSection(group: group)
+                
                 section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.boundarySupplementaryItems = [headerItem, bottomLine]
+                
                 return section
                 
             case .categories:
@@ -80,13 +94,12 @@ class ViewController: UIViewController {
                 let nonCategorySectionItemInset = CGFloat(4)
                 
                 let itemLeadingAndTrailingInset = halfRemainingWidth + nonCategorySectionItemInset
-                
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: itemLeadingAndTrailingInset, bottom: 0, trailing: itemLeadingAndTrailingInset)
-                
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [headerItem]
                 
                 return section
             }
@@ -110,8 +123,6 @@ class ViewController: UIViewController {
             self.dataSource.supplementaryViewProvider = { collectionView, kind, indexPath -> UICollectionReusableView? in
                 switch kind {
                 case SupplementaryViewKind.header:
-                    let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViewKind.header, withReuseIdentifier: SectionHeaderView.reuseIdentifier, for: indexPath) as! SectionHeaderView
-                    headerView.setTitle("TODO")
                     
                     let section  = self.sections[indexPath.section]
                     let sectionName: String
@@ -124,6 +135,11 @@ class ViewController: UIViewController {
                     case .categories:
                         sectionName = "Top Categories"
                     }
+                    
+                    let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViewKind.header, withReuseIdentifier: SectionHeaderView.reuseIdentifier, for: indexPath) as! SectionHeaderView
+                    headerView.setTitle("\(sectionName)")
+                    
+                            
                     
                     return headerView
                     
