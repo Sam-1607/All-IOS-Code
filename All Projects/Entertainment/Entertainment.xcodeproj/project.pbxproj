@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D9AC91627FFB5A8005C9F34 /* GameSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9AC91527FFB5A8005C9F34 /* GameSoundPlayer.swift */; };
 		7DB73C7627F001600066765A /* SteppersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB73C7527F001600066765A /* SteppersView.swift */; };
 		7DB73C7827F00FC80066765A /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB73C7727F00FC70066765A /* GameView.swift */; };
 		7DF8DD582783398F00196320 /* EntertainmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF8DD572783398F00196320 /* EntertainmentApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D9AC91527FFB5A8005C9F34 /* GameSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSoundPlayer.swift; sourceTree = "<group>"; };
 		7DB73C7527F001600066765A /* SteppersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteppersView.swift; sourceTree = "<group>"; };
 		7DB73C7727F00FC70066765A /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		7DF8DD542783398F00196320 /* Entertainment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Entertainment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,7 @@
 			children = (
 				7DB73C7527F001600066765A /* SteppersView.swift */,
 				7DB73C7727F00FC70066765A /* GameView.swift */,
+				7D9AC91527FFB5A8005C9F34 /* GameSoundPlayer.swift */,
 				7DF8DD562783398F00196320 /* Entertainment */,
 				7DF8DD552783398F00196320 /* Products */,
 			);
@@ -146,6 +149,7 @@
 				7DF8DD5A2783398F00196320 /* StartGameView.swift in Sources */,
 				7DF8DD582783398F00196320 /* EntertainmentApp.swift in Sources */,
 				7DB73C7827F00FC80066765A /* GameView.swift in Sources */,
+				7D9AC91627FFB5A8005C9F34 /* GameSoundPlayer.swift in Sources */,
 				7DB73C7627F001600066765A /* SteppersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

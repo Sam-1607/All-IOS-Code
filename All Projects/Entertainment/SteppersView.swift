@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SteppersView: View {
     
-    @State private var selectedNumber =  Int.random(in: 1...10)
-    @State private var amountOfQuestions = 0
-    @State private var maxMultipliableNumber = 0
-    @State private var minimumMultipliableNumber = 0
-    @State private var correctAnswer = 0
     
+    @State var amountOfQuestions = 0
+    @State var maxMultipliableNumber = 0
+    @State var minimumMultipliableNumber = 0
+    @State var correctAnswer = 0
+    @State static var answer = ""
     var body: some View {
         NavigationView {
             ScrollView {
@@ -67,14 +67,18 @@ struct SteppersView: View {
                 
                 
                 NavigationLink("Start Game") {
-                    StartGameView()
+                    
+                    GameView( userAnswer: SteppersView.$answer)
                 }
                 
                 .padding()
-                .background(.black)
+                .background(.green)
                 .cornerRadius(20)
                 .padding(.top, 50)
-            } .navigationTitle("Select your Difficulties")
+            }
+            .background(.orange)
+            .navigationTitle("Select your Difficulties")
+                
         }
     }
 }
