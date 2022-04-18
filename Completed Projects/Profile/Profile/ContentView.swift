@@ -38,8 +38,6 @@ struct ContentView: View {
                     
                     
                     if TrueOrFalseValues.shared.locationIsChecked == true {
-                        
-                        //print("locationIsChecked is true")
                         Section(header: Text("Location")) {
                             HStack(alignment: .center) {
                                 Text(String(describing: profile.location.state))
@@ -47,12 +45,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                    else {
-                        //print("locationIsChecked is false")
-//                        Text("Location has been Filtered")
-//                            .padding()
-                    }
-                    
+
                     if filterView.trueOrFalse.loginInfoIsChecked == true {
                         Section(header: Text("Login Info")) {
                             VStack {
@@ -73,10 +66,6 @@ struct ContentView: View {
                             }
                         }
                     }
-                    else {
-//                        Text("Login Info Has been Filtered")
-//                            .padding()
-                    }
                     
                     if filterView.trueOrFalse.contactIsChecked == true {
                         Section(header: Text("Contact")) {
@@ -91,10 +80,6 @@ struct ContentView: View {
                                 }
                             }
                         }
-                    }
-                    else {
-//                        Text("Contact info has been Filtered")
-//                            .padding()
                     }
                     
                     if filterView.trueOrFalse.identificationIsChecked == true {
@@ -115,9 +100,6 @@ struct ContentView: View {
                             }
                         }
                     }
-                    else {
-                       // Text("Identification has been Filtered")
-                    }
                     
                     if filterView.trueOrFalse.registrationInfoIsChecked == true {
                         Section(header: Text("Registration Details")) {
@@ -133,12 +115,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                    else {
-//                        Text("Registration info has been Filtered")
-//                            .padding()
-                    }
                 }
-                
             }
             .navigationBarTitle("Profiles")
         }
