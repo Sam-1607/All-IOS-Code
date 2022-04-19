@@ -23,42 +23,41 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueCell" id="z6x-Wg-ge3" customClass="LeagueTableViewCell" customModule="NBA" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.666666030883789" width="428" height="43"/>
+                                <rect key="frame" x="0.0" y="88.666666030883789" width="428" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6x-Wg-ge3" id="10c-Q8-qqr">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x7i-hI-Zt4">
-                                            <rect key="frame" x="20" y="0.0" width="44" height="43"/>
+                                            <rect key="frame" x="20" y="0.0" width="44" height="38"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL8-tw-BEn">
-                                            <rect key="frame" x="72" y="11" width="105" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL8-tw-BEn">
+                                            <rect key="frame" x="72" y="11" width="83" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ek-F1R">
-                                            <rect key="frame" x="347" y="11" width="61" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ek-F1R">
+                                            <rect key="frame" x="366" y="9" width="42" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SL8-tw-BEn" firstAttribute="firstBaseline" secondItem="cMe-Ek-F1R" secondAttribute="firstBaseline" id="3WV-tG-NNg"/>
                                         <constraint firstItem="cMe-Ek-F1R" firstAttribute="trailing" secondItem="10c-Q8-qqr" secondAttribute="trailingMargin" id="6Qm-su-5wU"/>
                                         <constraint firstItem="SL8-tw-BEn" firstAttribute="centerY" secondItem="10c-Q8-qqr" secondAttribute="centerY" id="86W-mX-rQy"/>
                                         <constraint firstItem="cMe-Ek-F1R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SL8-tw-BEn" secondAttribute="trailing" constant="8" symbolic="YES" id="A3P-p8-tIs"/>
+                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="centerY" secondItem="SL8-tw-BEn" secondAttribute="centerY" id="RbX-8l-fhb"/>
                                         <constraint firstItem="SL8-tw-BEn" firstAttribute="leading" secondItem="10c-Q8-qqr" secondAttribute="leading" constant="72" id="T4j-Fk-IC8"/>
                                         <constraint firstItem="SL8-tw-BEn" firstAttribute="leading" secondItem="x7i-hI-Zt4" secondAttribute="trailing" constant="8" symbolic="YES" id="Uv1-qH-4yq"/>
-                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="centerY" secondItem="x7i-hI-Zt4" secondAttribute="centerY" id="V2k-9q-EKL"/>
-                                        <constraint firstItem="SL8-tw-BEn" firstAttribute="centerY" secondItem="x7i-hI-Zt4" secondAttribute="centerY" id="kGg-fQ-nGA"/>
                                         <constraint firstItem="x7i-hI-Zt4" firstAttribute="top" secondItem="10c-Q8-qqr" secondAttribute="top" id="kZs-N5-rrc"/>
                                         <constraint firstItem="x7i-hI-Zt4" firstAttribute="leading" secondItem="10c-Q8-qqr" secondAttribute="leadingMargin" id="oik-XT-peh"/>
+                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="top" secondItem="10c-Q8-qqr" secondAttribute="topMargin" constant="-1.9999999999998863" id="p2j-4g-T7A"/>
                                         <constraint firstItem="SL8-tw-BEn" firstAttribute="leading" secondItem="x7i-hI-Zt4" secondAttribute="trailing" constant="8" id="t3g-M0-4Jg"/>
-                                        <constraint firstItem="SL8-tw-BEn" firstAttribute="baseline" secondItem="cMe-Ek-F1R" secondAttribute="baseline" id="tZb-1L-nNU"/>
                                         <constraint firstItem="SL8-tw-BEn" firstAttribute="top" secondItem="10c-Q8-qqr" secondAttribute="topMargin" id="xr0-qX-MCz"/>
+                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="centerY" secondItem="x7i-hI-Zt4" secondAttribute="centerY" id="zux-y5-CBF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

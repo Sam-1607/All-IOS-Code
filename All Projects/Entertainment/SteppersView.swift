@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SteppersView: View {
     
-    
     @State var amountOfQuestions = 0
     @State var maxMultipliableNumber = 0
     @State var minimumMultipliableNumber = 0
     @State var correctAnswer = 0
     @State static var answer = ""
+    
     var body: some View {
         NavigationView {
             ScrollView {

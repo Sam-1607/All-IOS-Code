@@ -31,13 +31,13 @@ struct GameView: View {
     }
     
     func setGameDifficulty()  {
-        let numbersArray = Array(stepperView.minimumMultipliableNumber...stepperView.maxMultipliableNumber)
-        print(numbersArray)
-        let question1 = numbersArray[0]
-        let question2 = numbersArray[1]
-        number1 = question1
-        number2 = question2
-        correctAnswer = question1 * question2
+//      //  let numbersArray = Array(stepperView.minimumMultipliableNumber...stepperView.maxMultipliableNumber)
+//        print(numbersArray)
+//        let question1 = numbersArray[0]
+//        let question2 = numbersArray[1]
+//        number1 = question1
+//        number2 = question2
+//        correctAnswer = question1 * question2
     }
     
     func checkAnswer() {
