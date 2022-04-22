@@ -40,6 +40,7 @@ func fetch(completion: @escaping(Result<[League], Error>) -> Void) {
             do {
                 let decodedResponse = try decoder.decode(Response.self, from: data)
                 completion(.success(decodedResponse.response))
+                
             }
             catch {
                 completion(.failure(error))

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+
 
 class LeagueCollectionVIewControllerTableViewController: UITableViewController {
     
@@ -53,21 +55,29 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueTableViewCell else {
-           return UITableViewCell()
+            return UITableViewCell()
         }
         let league = leagues[indexPath.row]
-        let flagImageURL = URL(string: "\(String(describing: league.country.flag))")!
-
-        let flagImageData = try? Data(contentsOf: flagImageURL)
-                            
+        
         cell.leageName.text = league.name
         cell.leageCountry.text = league.country.name
-        cell.leagueCountryFlagImage.image = UIImage(data: flagImageData!)
+        cell.leagueCountryFlagImage.backgroundColor = .black
         
         
+        if let flagImageURL = league.country.flag {
+            guard let url = URL(string: flagImageURL) else { return cell }
+            DispatchQueue.main.async {
+                let flagImageData = try! Data(contentsOf: url)
+                let image = UIImage(data: flagImageData)
+                cell.leagueCountryFlagImage.image = image
+            }
+        } else {
+            cell.leagueCountryFlagImage.image = UIImage(systemName: "flag")
+        }
         
         return cell
     }
+    
     
     
     /*
@@ -86,7 +96,7 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
      tableView.deleteRows(at: [indexPath], with: .fade)
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }    
+     }
      }
      */
     
@@ -118,3 +128,5 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
     //MARK: Network Call
     
 }
+
+
