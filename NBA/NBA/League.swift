@@ -51,7 +51,3 @@ func fetch(completion: @escaping(Result<[League], Error>) -> Void) {
     task.resume()
 }
 }
-//fetch { response in
-//    print(response)
-//}
-
