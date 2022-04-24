@@ -74,6 +74,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Leagues" image="chart.bar.xaxis" catalog="system" id="y1K-K6-nTa"/>
                     <navigationItem key="navigationItem" id="U0j-51-4gi"/>
+                    <connections>
+                        <outlet property="searchBar" destination="jKw-Lv-9uf" id="yBh-ws-i3b"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aH4-y0-xSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

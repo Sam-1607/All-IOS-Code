@@ -9,20 +9,20 @@ import UIKit
 import SwiftUI
 
 
-class LeagueCollectionVIewControllerTableViewController: UITableViewController {
+class LeagueCollectionVIewControllerTableViewController: UITableViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var networkController = NetworkController2()
-    var leagues = [League]()
+    var leagues: [League] = []
+    var filteredLeagues: [League]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        filteredLeagues = leagues
+        searchBar.delegate = self
+        searchBar(searchBar, textDidChange: searchBar.text!)
         fetchData()
     }
     
@@ -41,6 +41,8 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
         }
     }
     
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +50,7 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leagues.count
+        return filteredLeagues.count
     }
     
     
@@ -56,76 +58,53 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueTableViewCell else {
             return UITableViewCell()
         }
-        let league = leagues[indexPath.row]
+        
+        let league = filteredLeagues[indexPath.row]
         
         cell.leageName.text = league.name
         cell.leageCountry.text = league.country.name
-        cell.leagueCountryFlagImage.backgroundColor = .black
         
         
-        if let flagImageURL = league.country.flag {
-            guard let url = URL(string: flagImageURL) else { return cell }
-            DispatchQueue.main.async {
-                let flagImageData = try! Data(contentsOf: url)
-                let image = UIImage(data: flagImageData)
-                cell.leagueCountryFlagImage.image = image
-            }
-        } else {
-            cell.leagueCountryFlagImage.image = UIImage(systemName: "flag")
-        }
+        //        guard let flagImageUrl = league.country.flag else { return cell }
+        //        if let url = URL(string: flagImageUrl) {
+        //            DispatchQueue.main.async {
+        //                let flagImageData = try? Data(contentsOf: url)
+        //                let image = UIImage(data: flagImageData!)
+        //                cell.leagueCountryFlagImage.image = image
+        //            }
+        //        }
+        
+        
+        //        if let flagImageURL = league.country.flag {
+        //            guard let url = URL(string: flagImageURL) else { return cell }
+        //            DispatchQueue.main.async {
+        //                let flagImageData = try? Data(contentsOf: url)
+        //                let image = UIImage(data: flagImageData!)
+        //                cell.leagueCountryFlagImage.image = image
+        //            }
+        //        } else {
+        //            cell.leagueCountryFlagImage.image = UIImage(systemName: "flag")
+        //        }
         
         return cell
     }
     
+    // MARK: SearchBar Config
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    //MARK: Network Call
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredLeagues = []
+        
+        if searchText == "" {
+            filteredLeagues = leagues
+        } else {
+            for league in leagues {
+                if league.name.lowercased().contains(searchText.lowercased()) || league.country.name.lowercased().contains(searchText.lowercased()) {
+                    filteredLeagues.append(league)
+                }
+            }
+        }
+            self.tableView.reloadData()
+        
+    }
 }
-
 
