@@ -14,6 +14,8 @@ class LeagueTableViewCell: UITableViewCell {
     @IBOutlet weak var leageCountry: UILabel!
     
     override func awakeFromNib() {
+        
+        
         super.awakeFromNib()
         // Initialization code
     }

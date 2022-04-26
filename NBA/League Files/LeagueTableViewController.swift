@@ -19,6 +19,8 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         filteredLeagues = leagues
         searchBar.delegate = self
         searchBar(searchBar, textDidChange: searchBar.text!)
@@ -72,8 +74,6 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
                     DispatchQueue.main.async {
                         cell.leagueWebFlagImageView.load(URLRequest(url: url))
                         
-                        
-
                     }
                     
                     
