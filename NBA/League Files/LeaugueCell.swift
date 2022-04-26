@@ -7,6 +7,6 @@
 
 import Foundation
 
-extension LeagueCollectionVIewControllerTableViewController {
+extension LeagueTableViewController {
     
 }

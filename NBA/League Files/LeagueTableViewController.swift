@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import SwiftUI
+import WebKit
 
-
-class LeagueCollectionVIewControllerTableViewController: UITableViewController, UISearchBarDelegate {
+class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -31,6 +30,7 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController, 
             switch result {
             case .success(let league):
                 self.leagues = league
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -40,8 +40,7 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController, 
             }
         }
     }
-    
-    
+  
     
     // MARK: - Table view data source
     
@@ -64,27 +63,27 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController, 
         cell.leageName.text = league.name
         cell.leageCountry.text = league.country.name
         
+        guard let flagImageString = league.country.flag else { return cell }
         
-        //        guard let flagImageUrl = league.country.flag else { return cell }
-        //        if let url = URL(string: flagImageUrl) {
-        //            DispatchQueue.main.async {
-        //                let flagImageData = try? Data(contentsOf: url)
-        //                let image = UIImage(data: flagImageData!)
-        //                cell.leagueCountryFlagImage.image = image
-        //            }
-        //        }
-        
-        
-        //        if let flagImageURL = league.country.flag {
-        //            guard let url = URL(string: flagImageURL) else { return cell }
-        //            DispatchQueue.main.async {
-        //                let flagImageData = try? Data(contentsOf: url)
-        //                let image = UIImage(data: flagImageData!)
-        //                cell.leagueCountryFlagImage.image = image
-        //            }
-        //        } else {
-        //            cell.leagueCountryFlagImage.image = UIImage(systemName: "flag")
-        //        }
+        if flagImageString.count == 40 {
+            guard let url = URL(string: flagImageString) else { return cell }
+            let task = URLSession.shared.dataTask(with: url) { data, _, error in
+                if data != nil {
+                    DispatchQueue.main.async {
+                        cell.leagueWebFlagImageView.load(URLRequest(url: url))
+                        
+                        
+
+                    }
+                    
+                    
+                    
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+            task.resume()
+        }
         
         return cell
     }
@@ -103,8 +102,7 @@ class LeagueCollectionVIewControllerTableViewController: UITableViewController, 
                 }
             }
         }
-            self.tableView.reloadData()
+        self.tableView.reloadData()
         
     }
 }
-

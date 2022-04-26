@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+import WebKit
 class LeagueTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var leagueCountryFlagImage: UIImageView!
+    @IBOutlet weak var leagueWebFlagImageView: WKWebView!
     @IBOutlet weak var leageName: UILabel!
     @IBOutlet weak var leageCountry: UILabel!
     
