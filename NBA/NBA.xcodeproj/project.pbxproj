@@ -15,6 +15,7 @@
 		7D1934C628086E68001351FF /* LeaugueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1934C528086E68001351FF /* LeaugueCell.swift */; };
 		7D1934C8280874CE001351FF /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */; };
 		7D3BB0EE280736CB0074B50C /* LeagueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */; };
+		7D4BE11928198F4500E49CD6 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */; };
 		7DA628A72806697300A04675 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A62806697300A04675 /* League.swift */; };
 		7DA628A928071AAA00A04675 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A828071AAA00A04675 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4BE11928198F4500E49CD6 /* SDWebImageSVGCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,9 @@
 			dependencies = (
 			);
 			name = NBA;
+			packageProductDependencies = (
+				7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */,
+			);
 			productName = NBA;
 			productReference = 7D04A7432805CC500010F674 /* NBA.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +136,9 @@
 				Base,
 			);
 			mainGroup = 7D04A73A2805CC500010F674;
+			packageReferences = (
+				7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+			);
 			productRefGroup = 7D04A7442805CC500010F674 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7D04A73B2805CC500010F674 /* Project object */;
 }

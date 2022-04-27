@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import WebKit
+import SDWebImageSVGCoder
 
 class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -61,29 +61,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         }
         
         let league = filteredLeagues[indexPath.row]
-        
-        cell.leageName.text = league.name
-        cell.leageCountry.text = league.country.name
-        
-        guard let flagImageString = league.country.flag else { return cell }
-        
-        if flagImageString.count == 40 {
-            guard let url = URL(string: flagImageString) else { return cell }
-            let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                if data != nil {
-                    DispatchQueue.main.async {
-                        cell.leagueWebFlagImageView.load(URLRequest(url: url))
-                        
-                    }
-                    
-                    
-                    
-                } else if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-            task.resume()
-        }
+        cell.setLeague(league: league)
         
         return cell
     }

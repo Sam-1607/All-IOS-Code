@@ -23,41 +23,49 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueCell" id="z6x-Wg-ge3" customClass="LeagueTableViewCell" customModule="NBA" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.666666030883789" width="428" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="88.666666030883789" width="428" height="68.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6x-Wg-ge3" id="10c-Q8-qqr">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="68.333335876464844"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ek-F1R">
-                                            <rect key="frame" x="366" y="-4" width="42" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MhR-P9-KUP">
+                                            <rect key="frame" x="8" y="4.0000000000000036" width="100" height="60.333333333333343"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="Ddz-nI-ejN"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="E2Y-Xk-90W"/>
+                                                <constraint firstAttribute="height" constant="60" id="cpe-ES-B3L"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ek-F1R">
+                                            <rect key="frame" x="378" y="27.666666666666668" width="42" height="13.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ock-1e-PfQ">
-                                            <rect key="frame" x="20" y="-9" width="85" height="63"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <wkWebViewConfiguration key="configuration">
-                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                                <wkPreferences key="preferences"/>
-                                            </wkWebViewConfiguration>
-                                        </wkWebView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="League Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL8-tw-BEn">
-                                            <rect key="frame" x="113" y="11" width="196" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL8-tw-BEn">
+                                            <rect key="frame" x="116" y="26.333333333333332" width="83" height="15.666666666666668"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="cMe-Ek-F1R" secondAttribute="trailing" constant="8" id="2sS-KB-vXi"/>
+                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SL8-tw-BEn" secondAttribute="trailing" constant="4" id="45e-yb-6wd"/>
+                                        <constraint firstItem="MhR-P9-KUP" firstAttribute="centerY" secondItem="10c-Q8-qqr" secondAttribute="centerY" id="4KV-mx-l37"/>
+                                        <constraint firstItem="MhR-P9-KUP" firstAttribute="leading" secondItem="10c-Q8-qqr" secondAttribute="leading" constant="8" id="8xC-AZ-1Wk"/>
+                                        <constraint firstItem="SL8-tw-BEn" firstAttribute="leading" secondItem="MhR-P9-KUP" secondAttribute="trailing" constant="8" id="H1h-Gj-PM5"/>
+                                        <constraint firstAttribute="bottom" secondItem="MhR-P9-KUP" secondAttribute="bottom" constant="4" id="IWi-3S-1i6"/>
+                                        <constraint firstItem="MhR-P9-KUP" firstAttribute="top" secondItem="10c-Q8-qqr" secondAttribute="top" constant="4" id="PTi-st-reJ"/>
+                                        <constraint firstItem="SL8-tw-BEn" firstAttribute="centerY" secondItem="10c-Q8-qqr" secondAttribute="centerY" id="Qu9-pt-KfZ"/>
+                                        <constraint firstItem="cMe-Ek-F1R" firstAttribute="centerY" secondItem="10c-Q8-qqr" secondAttribute="centerY" id="aq6-86-mEd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="leageCountry" destination="cMe-Ek-F1R" id="N2k-jR-KNa"/>
                                     <outlet property="leageName" destination="SL8-tw-BEn" id="lRA-Kd-fAU"/>
-                                    <outlet property="leagueWebFlagImageView" destination="ock-1e-PfQ" id="KMi-My-xwJ"/>
+                                    <outlet property="leagueFlagImage" destination="MhR-P9-KUP" id="0X2-ch-Pia"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
