@@ -14,6 +14,12 @@ struct Country: Codable {
     var flag: String?
 }
 
+struct Season: Codable {
+    var season: String
+    var start: String
+    var end: String
+}
+
 struct Response: Codable {
     var response: [League]
 }
@@ -23,8 +29,8 @@ struct League: Codable {
     var id: Int
     var type: String
     var name: String
+  //  var seasons: Season
 }
-
 
 
 

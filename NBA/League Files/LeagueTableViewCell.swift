@@ -25,7 +25,7 @@ class LeagueTableViewCell: UITableViewCell {
         if let flagImageString = league.country.flag, let url = URL(string: flagImageString) {
             let bitmapSize = CGSize(width: 100, height: 60)
             leagueFlagImage.sd_setImage(with: url, placeholderImage: UIImage(systemName: "flag"), options: [], context: [.imageThumbnailPixelSize : bitmapSize])
-            if flagImageString == "https://media.api-sports.io/flags/us.svg" {
+            if flagImageString == "https://media.api-sports.io/flags/us.svg" || leageCountry.text == "USA"{
                 leagueFlagImage.image = UIImage(named: "USflag")
             }
         } else {

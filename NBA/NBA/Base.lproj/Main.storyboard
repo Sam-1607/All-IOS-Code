@@ -3,6 +3,7 @@
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Find a league" id="jKw-Lv-9uf">
+                        <searchBar key="tableHeaderView" contentMode="scaleAspectFit" barStyle="black" placeholder="Find a league" id="jKw-Lv-9uf">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="85"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +68,7 @@
                                     <outlet property="leageCountry" destination="cMe-Ek-F1R" id="N2k-jR-KNa"/>
                                     <outlet property="leageName" destination="SL8-tw-BEn" id="lRA-Kd-fAU"/>
                                     <outlet property="leagueFlagImage" destination="MhR-P9-KUP" id="0X2-ch-Pia"/>
+                                    <segue destination="6cj-NH-mzM" kind="presentation" id="svk-3D-HWV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,6 +86,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aH4-y0-xSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516.8224299065419" y="-410.15118790496763"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VIG-sQ-FLD">
+            <objects>
+                <viewController id="6cj-NH-mzM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a8h-oI-XeQ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVO-xE-ERR">
+                                <rect key="frame" x="94" y="144" width="240" height="598"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEX-0q-vzX">
+                                        <rect key="frame" x="20" y="24" width="200" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ApO-fA-EE7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KVO-xE-ERR" firstAttribute="top" secondItem="ApO-fA-EE7" secondAttribute="top" constant="100" id="Pjg-Qb-VbK"/>
+                            <constraint firstItem="ApO-fA-EE7" firstAttribute="bottom" secondItem="KVO-xE-ERR" secondAttribute="bottom" constant="130" id="b3t-IB-PqN"/>
+                            <constraint firstItem="KVO-xE-ERR" firstAttribute="centerX" secondItem="a8h-oI-XeQ" secondAttribute="centerX" id="bkJ-uj-PIL"/>
+                            <constraint firstItem="ApO-fA-EE7" firstAttribute="trailing" secondItem="KVO-xE-ERR" secondAttribute="trailing" constant="94" id="fps-QE-7Ai"/>
+                            <constraint firstItem="KVO-xE-ERR" firstAttribute="leading" secondItem="ApO-fA-EE7" secondAttribute="leading" constant="94" id="lxt-CE-c5a"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJi-2N-6md" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245.7943925233644" y="-802.15982721382295"/>
         </scene>
         <!--Teams-->
         <scene sceneID="UfY-sX-68B">

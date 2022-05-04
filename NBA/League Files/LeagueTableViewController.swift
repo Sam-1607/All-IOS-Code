@@ -23,12 +23,16 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredLeagues = leagues
+        tableView.backgroundColor = .black
         searchBar.delegate = self
         searchBar(searchBar, textDidChange: searchBar.text!)
         fetchData()
         loadVideo()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadVideo()
+    }
    
     
     // MARK: Functions
@@ -66,28 +70,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         player?.seek(to: CMTime.zero)
         player?.play()
     }
-    
-    
-//    private func playVideo() {
-//        guard let path = Bundle.main.path(forResource: "launchScreen", ofType:"mp4") else {
-//                debugPrint("video file not found")
-//                return
-//            }
-//            let player = AVPlayer(url: URL(fileURLWithPath: path))
-//
-//            playerController.player = player
-//        playerController.videoGravity = .resizeAspectFill
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerController.player?.currentItem)
-//            present(playerController, animated: true) {
-//                player.play()
-//            }
-//        }
-//
-//
-//    @objc func playerDidFinishPlaying(note: NSNotification) {
-//        print("Finished Playing Launchscreen")
-//    }
+
   
     // MARK: - Table view data source
     

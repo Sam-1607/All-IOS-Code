@@ -2,9 +2,6 @@
   "images" : [
     {
       "filename" : "USflag.png",
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x"
     },
