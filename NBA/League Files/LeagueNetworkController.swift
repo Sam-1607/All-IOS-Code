@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NetworkController {
+class LeagueNetworkController {
 func fetch(completion: @escaping(Result<[League], Error>) -> Void) {
     let urlRequest = NSMutableURLRequest(url: NSURL(string: "https://api-basketball.p.rapidapi.com/leagues")! as URL)
     urlRequest.allHTTPHeaderFields = [
@@ -48,7 +48,7 @@ func fetch(completion: @escaping(Result<[League], Error>) -> Void) {
 
 extension UIImageView {
     func setImage(from url: URL) {
-        NetworkController.loadImage(from: url) { result in
+        LeagueNetworkController.loadImage(from: url) { result in
             guard case .success(let image) = result else {
                 return
             }

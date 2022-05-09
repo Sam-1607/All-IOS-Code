@@ -13,11 +13,13 @@
 		7D04A7502805CC530010F674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D04A74F2805CC530010F674 /* Assets.xcassets */; };
 		7D04A7532805CC530010F674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D04A7512805CC530010F674 /* LaunchScreen.storyboard */; };
 		7D1934C8280874CE001351FF /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */; };
+		7D243BE92829773D00BA22ED /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D243BE82829773D00BA22ED /* Team.swift */; };
+		7D243BEC2829788400BA22ED /* TeamNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D243BEB2829788400BA22ED /* TeamNetworkController.swift */; };
 		7D3BB0EE280736CB0074B50C /* LeagueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */; };
 		7D4BE11928198F4500E49CD6 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */; };
 		7D92374B281C627300C43462 /* launchScreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D92374A281C627300C43462 /* launchScreen.mp4 */; };
 		7DA628A72806697300A04675 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A62806697300A04675 /* League.swift */; };
-		7DA628A928071AAA00A04675 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A828071AAA00A04675 /* NetworkController.swift */; };
+		7DA628A928071AAA00A04675 /* LeagueNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +31,12 @@
 		7D04A7522805CC530010F674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D04A7542805CC530010F674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
+		7D243BE82829773D00BA22ED /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		7D243BEB2829788400BA22ED /* TeamNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNetworkController.swift; sourceTree = "<group>"; };
 		7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewController.swift; sourceTree = "<group>"; };
 		7D92374A281C627300C43462 /* launchScreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = launchScreen.mp4; sourceTree = "<group>"; };
 		7DA628A62806697300A04675 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
-		7DA628A828071AAA00A04675 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueNetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +54,8 @@
 		7D04A73A2805CC500010F674 = {
 			isa = PBXGroup;
 			children = (
+				7D243BEA2829774A00BA22ED /* Team Files */,
 				7D74DB40281837690015E7CC /* League Files */,
-				7DA628A828071AAA00A04675 /* NetworkController.swift */,
 				7D04A7452805CC500010F674 /* NBA */,
 				7D04A7442805CC500010F674 /* Products */,
 			);
@@ -79,12 +83,22 @@
 			path = NBA;
 			sourceTree = "<group>";
 		};
+		7D243BEA2829774A00BA22ED /* Team Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D243BEB2829788400BA22ED /* TeamNetworkController.swift */,
+				7D243BE82829773D00BA22ED /* Team.swift */,
+			);
+			path = "Team Files";
+			sourceTree = "<group>";
+		};
 		7D74DB40281837690015E7CC /* League Files */ = {
 			isa = PBXGroup;
 			children = (
 				7DA628A62806697300A04675 /* League.swift */,
 				7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */,
 				7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */,
+				7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */,
 			);
 			path = "League Files";
 			sourceTree = "<group>";
@@ -167,8 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA628A928071AAA00A04675 /* NetworkController.swift in Sources */,
+				7DA628A928071AAA00A04675 /* LeagueNetworkController.swift in Sources */,
 				7D1934C8280874CE001351FF /* LeagueTableViewCell.swift in Sources */,
+				7D243BE92829773D00BA22ED /* Team.swift in Sources */,
+				7D243BEC2829788400BA22ED /* TeamNetworkController.swift in Sources */,
 				7D04A7472805CC500010F674 /* AppDelegate.swift in Sources */,
 				7DA628A72806697300A04675 /* League.swift in Sources */,
 				7D04A7492805CC500010F674 /* SceneDelegate.swift in Sources */,

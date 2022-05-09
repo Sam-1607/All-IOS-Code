@@ -14,7 +14,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var networkController = NetworkController()
+    var networkController = LeagueNetworkController()
     var leagues: [League] = []
     var filteredLeagues: [League]!
     let playerController = AVPlayerViewController()
@@ -27,11 +27,11 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         searchBar(searchBar, textDidChange: searchBar.text!)
         fetchData()
-        loadVideo()
+        loadVideo(resource: "launchScreen", fileType: "mp4")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadVideo()
+        loadVideo(resource: "launchScreen", fileType: "mp4")
     }
    
     
@@ -51,26 +51,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    private func loadVideo() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
-        } catch { }
-
-        let path = Bundle.main.path(forResource: "launchScreen", ofType:"mp4")
-
-        player = AVPlayer(url: NSURL(fileURLWithPath: path!) as URL)
-        let playerLayer = AVPlayerLayer(player: player)
-
-        playerLayer.frame = self.view.frame
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        playerLayer.zPosition = -1
-
-        self.view.layer.addSublayer(playerLayer)
-
-        player?.seek(to: CMTime.zero)
-        player?.play()
-    }
-
+     
   
     // MARK: - Table view data source
     
@@ -110,6 +91,29 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         }
         self.tableView.reloadData()
     }
+    
+    //MARK: Video Player Config
+    
+    func loadVideo(resource: String, fileType: String) {
+       do {
+           try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
+       } catch { }
+
+       let path = Bundle.main.path(forResource: resource, ofType: fileType)
+
+       player = AVPlayer(url: NSURL(fileURLWithPath: path!) as URL)
+       let playerLayer = AVPlayerLayer(player: player)
+
+       playerLayer.frame = self.view.frame
+       playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+       playerLayer.zPosition = -1
+
+       self.view.layer.addSublayer(playerLayer)
+
+       player?.seek(to: CMTime.zero)
+       player?.play()
+    }
+
 }
 
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 var leagueUrl = URL(string: "https://api-basketball.p.rapidapi.com/leagues")
 
 struct Country: Codable {
@@ -15,17 +16,11 @@ struct Country: Codable {
 }
 
 struct SeasonInfo: Codable {
-    var season: Int
+    var season: String
     var start: String
     var end: String
 }
 
-struct Season: Codable {
-    var obj1: SeasonInfo
-    var obj2: SeasonInfo
-    var obj3: SeasonInfo
-    var obj4: SeasonInfo
-}
 
 struct Response: Codable {
     var response: [League]
@@ -36,8 +31,7 @@ struct League: Codable {
     var id: Int
     var type: String
     var name: String
-    var seasons: [Season]
+    var seasons: [SeasonInfo]
 }
 
-// Do I need to have an API call for every type of Object or can I just use 1 api call
 
