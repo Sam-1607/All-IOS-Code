@@ -30,10 +30,15 @@ class LeagueTableViewCell: UITableViewCell {
             }
         } else {
             leagueFlagImage.image = UIImage(named: "logo")
+            leagueFlagImage.clipsToBounds = true
+            
         }
         
         leageName.text = league.name
         leageCountry.text = league.country.name
+        leagueFlagImage.layer.cornerRadius = 17 
+        leagueFlagImage.layer.borderColor = UIColor.white.cgColor
+        leagueFlagImage.layer.borderWidth = 3
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

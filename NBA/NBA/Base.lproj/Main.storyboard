@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Leagues-->
+        <!--League Table View Controller-->
         <scene sceneID="lXn-vx-6bb">
             <objects>
                 <tableViewController id="Cj3-51-Ptf" customClass="LeagueTableViewController" customModule="NBA" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                                     <outlet property="leageCountry" destination="cMe-Ek-F1R" id="N2k-jR-KNa"/>
                                     <outlet property="leageName" destination="SL8-tw-BEn" id="lRA-Kd-fAU"/>
                                     <outlet property="leagueFlagImage" destination="MhR-P9-KUP" id="0X2-ch-Pia"/>
-                                    <segue destination="6cj-NH-mzM" kind="presentation" id="svk-3D-HWV"/>
+                                    <segue destination="6cj-NH-mzM" kind="show" id="4GH-eJ-NOw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -77,7 +77,6 @@
                             <outlet property="delegate" destination="Cj3-51-Ptf" id="ACE-qa-9Ru"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Leagues" image="chart.bar.xaxis" catalog="system" id="y1K-K6-nTa"/>
                     <navigationItem key="navigationItem" id="U0j-51-4gi"/>
                     <connections>
                         <outlet property="searchBar" destination="jKw-Lv-9uf" id="yBh-ws-i3b"/>
@@ -85,14 +84,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aH4-y0-xSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516.8224299065419" y="-410.15118790496763"/>
+            <point key="canvasLocation" x="2333" y="-483"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VIG-sQ-FLD">
             <objects>
                 <viewController id="6cj-NH-mzM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a8h-oI-XeQ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVO-xE-ERR">
@@ -118,10 +117,11 @@
                         <viewLayoutGuide key="safeArea" id="ApO-fA-EE7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lPk-LQ-Zys"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJi-2N-6md" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245.7943925233644" y="-802.15982721382295"/>
+            <point key="canvasLocation" x="3145.7943925233644" y="-802.15982721382295"/>
         </scene>
         <!--Teams-->
         <scene sceneID="UfY-sX-68B">
@@ -156,7 +156,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWV-nv-QBi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932.7102803738317" y="-187.25701943844493"/>
+            <point key="canvasLocation" x="3832.7102803738317" y="-187.25701943844493"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="T7N-gX-jqb">
@@ -173,7 +173,7 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="Cj3-51-Ptf" kind="relationship" relationship="viewControllers" id="uJi-q0-m74"/>
+                        <segue destination="Zx2-AX-iRV" kind="relationship" relationship="viewControllers" id="uJi-q0-m74"/>
                         <segue destination="8IB-yz-J7K" kind="relationship" relationship="viewControllers" id="wiq-aQ-bJ6"/>
                         <segue destination="E9p-e4-v0P" kind="relationship" relationship="viewControllers" id="XKs-vV-fft"/>
                         <segue destination="Vs1-aP-nCj" kind="relationship" relationship="viewControllers" id="cFv-4c-8WB"/>
@@ -246,6 +246,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCj-it-IVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2033" y="518"/>
+        </scene>
+        <!--Leagues-->
+        <scene sceneID="ZI9-ey-xyn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zx2-AX-iRV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Leagues" image="chart.bar.xaxis" catalog="system" id="y1K-K6-nTa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Ac-oa-GII">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cj3-51-Ptf" kind="relationship" relationship="rootViewController" id="6YH-hQ-KOr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpx-FZ-dtB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516.8224299065419" y="-410.15118790496763"/>
         </scene>
     </scenes>
     <resources>

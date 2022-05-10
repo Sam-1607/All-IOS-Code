@@ -45,20 +45,7 @@ import Foundation
 //fetch { response in
 //
 //}
-//
-//
-//func fetch2() {
-//    let url = URL(string: "https:api-basketball.p.rapidapi.com/leagues")!
-//    let urlSession = URLSession.shared.dataTask(with: url) {(data, resonse, error) in
-//        if let data = data {
-//            print(data)
-//        } else {
-//            print(resonse)
-//        }
-//
-//    }
-//
-//}
+
 
 struct TeamResponse: Codable {
     var response: [Team]
@@ -89,6 +76,7 @@ func fetch2(completion: @escaping(Result<[Team], Error>) -> Void) {
         let decoder = JSONDecoder()
         
         if let data = data {
+            print(data)
             do {
                 let decodedResponse = try decoder.decode(TeamResponse.self, from: data)
                 completion(.success(decodedResponse.response))
@@ -106,9 +94,9 @@ fetch2 { results in
     switch results {
     case .success(let team):
         teams = team
+
     case .failure(let error):
         print(error.localizedDescription)
     }
 }
 
-print(teams)

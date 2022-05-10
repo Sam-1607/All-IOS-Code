@@ -24,6 +24,20 @@ func center (strng: String, width: Int, fill: String = " ") -> String {
     return combinedString
 }
 
+func segragate(nums: [Int]) -> [[Int]] {
+    var evenArray: [Int] = []
+    var oddsArray: [Int] = []
+    
+    for num in nums {
+        if num % 2 == 0 {
+            evenArray.append(num)
+        } else {
+            oddsArray.append(num)
+        }
+    }
+    
+    return [evenArray,oddsArray]
+}
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-
+var numbers = [1,2,3,4,5,6,7,8,9,10]
+print(segragate(nums: numbers))

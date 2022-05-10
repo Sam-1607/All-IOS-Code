@@ -15,8 +15,13 @@ struct Country: Codable {
     var flag: String?
 }
 
-struct SeasonInfo: Codable {
+struct Parameters: Codable {
+    var league: String
     var season: String
+}
+
+struct SeasonInfo: Codable {
+    var season: Int
     var start: String
     var end: String
 }
@@ -35,3 +40,36 @@ struct League: Codable {
 }
 
 
+struct LeagueSeasons: Codable {
+    var seasons: [[String:String]]
+}
+
+struct Seasons: Codable {
+    let seasons: [Season]
+}
+struct Season: Codable {
+    let season: StringOrDouble
+    let start: String
+    let end: String
+}
+
+enum StringOrDouble: Codable {
+    
+case string(String)
+case double(Double)
+    
+    init(from decoder: Decoder) throws {
+        if let double = try? decoder.singleValueContainer().decode(Double.self) {
+            self = .double(double)
+            return
+        }
+        if let string = try? decoder.singleValueContainer().decode(String.self) {
+            self = .string(string)
+            return
+        }
+        throw Error.couldNotFindStringOrDouble
+    }
+    enum Error: Swift.Error {
+        case couldNotFindStringOrDouble
+    }
+}
