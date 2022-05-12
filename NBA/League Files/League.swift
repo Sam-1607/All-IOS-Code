@@ -10,23 +10,6 @@ import UIKit
 
 var leagueUrl = URL(string: "https://api-basketball.p.rapidapi.com/leagues")
 
-struct Country: Codable {
-    var name: String
-    var flag: String?
-}
-
-struct Parameters: Codable {
-    var league: String
-    var season: String
-}
-
-struct SeasonInfo: Codable {
-    var season: Int
-    var start: String
-    var end: String
-}
-
-
 struct Response: Codable {
     var response: [League]
 }
@@ -36,17 +19,19 @@ struct League: Codable {
     var id: Int
     var type: String
     var name: String
-    var seasons: [SeasonInfo]
+    var logo: String?
+    var seasons: [Season]
 }
 
-
-struct LeagueSeasons: Codable {
-    var seasons: [[String:String]]
+struct Country: Codable {
+    var name: String
+    var flag: String?
 }
 
 struct Seasons: Codable {
     let seasons: [Season]
 }
+
 struct Season: Codable {
     let season: StringOrDouble
     let start: String

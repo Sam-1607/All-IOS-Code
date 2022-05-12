@@ -76,6 +76,13 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let popUpView = storyboard?.instantiateViewController(withIdentifier: "PopUpView") as? LeagueInfoViewController {
+            self.navigationController?.pushViewController(popUpView, animated: true)
+        
+        }
+    }
+    
     // MARK: SearchBar Config
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredLeagues = []
