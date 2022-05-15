@@ -19,7 +19,7 @@ struct League: Codable {
     var id: Int
     var type: String
     var name: String
-    var logo: String?
+    var logo: String
     var seasons: [Season]
 }
 
@@ -28,24 +28,20 @@ struct Country: Codable {
     var flag: String?
 }
 
-struct Seasons: Codable {
-    let seasons: [Season]
-}
-
 struct Season: Codable {
-    let season: StringOrDouble
+    let season: StringOrInt
     let start: String
     let end: String
 }
 
-enum StringOrDouble: Codable {
+enum StringOrInt: Codable {
     
 case string(String)
-case double(Double)
+case int(Int)
     
     init(from decoder: Decoder) throws {
-        if let double = try? decoder.singleValueContainer().decode(Double.self) {
-            self = .double(double)
+        if let int = try? decoder.singleValueContainer().decode(Int.self) {
+            self = .int(int)
             return
         }
         if let string = try? decoder.singleValueContainer().decode(String.self) {

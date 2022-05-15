@@ -23,6 +23,8 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredLeagues = leagues
+        self.navigationController?.navigationBar.backItem?.backBarButtonItem?.tintColor = .white
+        self.navigationController?.navigationBar.barStyle = .black
         tableView.backgroundColor = .black
         searchBar.delegate = self
         searchBar(searchBar, textDidChange: searchBar.text!)
@@ -79,6 +81,8 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let popUpView = storyboard?.instantiateViewController(withIdentifier: "PopUpView") as? LeagueInfoViewController {
             self.navigationController?.pushViewController(popUpView, animated: true)
+            let league = filteredLeagues[indexPath.row]
+            popUpView.league = league
         
         }
     }

@@ -27,11 +27,12 @@ class LeagueTableViewCell: UITableViewCell {
             leagueFlagImage.sd_setImage(with: url, placeholderImage: UIImage(systemName: "flag"), options: [], context: [.imageThumbnailPixelSize : bitmapSize])
             if flagImageString == "https://media.api-sports.io/flags/us.svg" || leageCountry.text == "USA"{
                 leagueFlagImage.image = UIImage(named: "USflag")
+                
             }
         } else {
             leagueFlagImage.image = UIImage(named: "logo")
             leagueFlagImage.clipsToBounds = true
-            
+            self.leagueFlagImage.contentMode = .scaleAspectFit
         }
         
         leageName.text = league.name
