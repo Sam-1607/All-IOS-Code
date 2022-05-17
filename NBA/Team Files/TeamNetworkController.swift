@@ -8,7 +8,7 @@
 import Foundation
 
 class TeamNetworkController {
-    func fetch2(completion: @escaping(Result<[TeamStats], Error>) -> Void) {
+    func fetch2(completion: @escaping(Result<TeamStats, Error>) -> Void) {
         let urlRequest = NSMutableURLRequest(url: NSURL(string: "https://api-basketball.p.rapidapi.com/teams")! as URL)
         urlRequest.allHTTPHeaderFields = [
             "X-RapidAPI-Host": "api-basketball.p.rapidapi.com",
@@ -26,6 +26,8 @@ class TeamNetworkController {
                     completion(.failure(error))
                     print(error)
                 }
+            } else {
+                completion(.failure(NOData()))
             }
         }
         task.resume()

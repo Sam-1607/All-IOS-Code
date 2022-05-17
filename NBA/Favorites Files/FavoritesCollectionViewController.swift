@@ -1,44 +1,30 @@
 //
-//  TeamCollectionViewController.swift
+//  FavoritesCollectionViewController.swift
 //  NBA
 //
-//  Created by Sam Hiatt  on 5/11/22.
+//  Created by Sam Hiatt  on 5/16/22.
 //
 
 import UIKit
 import AVKit
 import AVFoundation
 
-protocol TeamCollectionRequireMents {
-    
-    var displayText: String { get  }
-    var displayImage: String? { get }
-    
-}
 
-private let reuseIdentifier = "leagueCollectionCell"
 
-class TeamCollectionViewController: UICollectionViewController {
-    
-    var teamItems: [TeamCollectionRequireMents] = []
-    var networkController = TeamNetworkController()
-    let playerController = AVPlayerViewController()
-    var player: AVPlayer?
-    
-    var leagueParam = ""
-    var seasonParam = ""
-    var teamParam = ""
+private let reuseIdentifier = "Cell"
+
+class FavoritesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.clearsSelectionOnViewWillAppear = false
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        loadVideo(resource: "teamLoader", fileType: "mp4")
+        // Do any additional setup after loading the view.
     }
 
     /*
@@ -55,53 +41,22 @@ class TeamCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return teamItems.count
+        return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LTSCollectionViewCell else { return UICollectionViewCell() }
-        
-        let items = teamItems[indexPath.row]
-        cell.setTeam(teams: items)
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    
+        // Configure the cell
+    
         return cell
     }
-    
-    
-    
-    
-    
-    
-    //MARK: Video Player FUNC
-    
-    func loadVideo(resource: String, fileType: String) {
-       do {
-           try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
-       } catch { }
-
-       let path = Bundle.main.path(forResource: resource, ofType: fileType)
-
-       player = AVPlayer(url: NSURL(fileURLWithPath: path!) as URL)
-       let playerLayer = AVPlayerLayer(player: player)
-
-       playerLayer.frame = self.view.frame
-       playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-       playerLayer.zPosition = -1
-
-       self.view.layer.addSublayer(playerLayer)
-
-       player?.seek(to: CMTime.zero)
-       player?.play()
-    }
-    
-    
-    
 
     // MARK: UICollectionViewDelegate
 

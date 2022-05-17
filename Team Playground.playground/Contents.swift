@@ -1,12 +1,5 @@
-//
-//  Team.swift
-//  NBA
-//
-//  Created by Sam Hiatt  on 5/9/22.
-//
-
-import Foundation
-import SwiftUI
+import UIKit
+import PlaygroundSupport
 
 struct TotalFor: Codable {
     var home: Int
@@ -140,15 +133,7 @@ struct Team: Codable {
     var name: String
 }
 
-struct TeamLeague: Codable, TeamCollectionRequireMents {
-    var displayText: String {
-        return name
-    }
-    
-    var displayImage: String? {
-        return logo
-    }
-    
+struct TeamLeague: Codable {
     var id: Int
     var name: String
     var season: String
@@ -172,3 +157,41 @@ struct NOData: Error {
     
 }
 
+var testURL = "https://api-basketball.p.rapidapi.com/statistics?league=12&season=2019-2020&team=133"
+
+func fetch2(completion: @escaping(Result<TeamStats, Error>) -> Void, myURL: String) {
+    let urlRequest = NSMutableURLRequest(url: NSURL(string: myURL)! as URL)
+    urlRequest.allHTTPHeaderFields = [
+        "X-RapidAPI-Host": "api-basketball.p.rapidapi.com",
+            "X-RapidAPI-Key": "3e4fa7a698msha88ceb1d7d66dc8p154ec3jsn31c14c39616b"
+    ]
+    let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { data, response, error in
+        let decoder = JSONDecoder()
+        
+        if let data = data {
+            print(String(data: data, encoding: .utf8))
+            do {
+                let decodedResponse = try decoder.decode(TeamResponse.self, from: data)
+                completion(.success(decodedResponse.response))
+            }
+            catch {
+                completion(.failure(error))
+                print(error)
+            }
+        } else {
+            completion(.failure(NOData()))
+        }
+    }
+    task.resume()
+}
+
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+fetch2(completion: { result in
+    switch result {
+    case .success(let teamStats):
+        print("received data: \(teamStats)")
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}, myURL: testURL)

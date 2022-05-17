@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="3145.7943925233644" y="-802.15982721382295"/>
         </scene>
-        <!--Teams-->
+        <!--Team Collection View Controller-->
         <scene sceneID="UfY-sX-68B">
             <objects>
-                <collectionViewController id="8IB-yz-J7K" sceneMemberID="viewController">
+                <collectionViewController id="8IB-yz-J7K" customClass="TeamCollectionViewController" customModule="NBA" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eRP-hJ-sfi">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,14 +204,41 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="PfV-A0-k1r">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="leagueCollectionCell" id="PfV-A0-k1r" customClass="LTSCollectionViewCell" customModule="NBA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="118.33333333333333"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="u26-b1-aO9">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="118.33333333333333"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="txh-kc-a7M">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="118.33333333333333"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UwF-SD-J0L">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="90"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zT-Uu-PNF">
+                                                    <rect key="frame" x="0.0" y="98" width="128" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="txh-kc-a7M" secondAttribute="bottom" id="MWA-it-19P"/>
+                                        <constraint firstAttribute="trailing" secondItem="txh-kc-a7M" secondAttribute="trailing" id="U0Q-F0-3t5"/>
+                                        <constraint firstItem="txh-kc-a7M" firstAttribute="top" secondItem="u26-b1-aO9" secondAttribute="top" id="aH5-AI-8x3"/>
+                                        <constraint firstItem="txh-kc-a7M" firstAttribute="leading" secondItem="u26-b1-aO9" secondAttribute="leading" id="k9H-Sh-oSn"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="collectionViewImage" destination="UwF-SD-J0L" id="o9p-hx-nO2"/>
+                                    <outlet property="collectionViewLabel" destination="4zT-Uu-PNF" id="boV-ba-Kty"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -219,11 +246,11 @@
                             <outlet property="delegate" destination="8IB-yz-J7K" id="cFP-p6-4KT"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Teams" id="w0P-nu-Njd"/>
+                    <navigationItem key="navigationItem" id="lfE-ei-Awb"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWV-nv-QBi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3832.7102803738317" y="-187.25701943844493"/>
+            <point key="canvasLocation" x="4732.7102803738317" y="-187.25701943844493"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="T7N-gX-jqb">
@@ -241,16 +268,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zx2-AX-iRV" kind="relationship" relationship="viewControllers" id="uJi-q0-m74"/>
-                        <segue destination="8IB-yz-J7K" kind="relationship" relationship="viewControllers" id="wiq-aQ-bJ6"/>
+                        <segue destination="NBk-tG-7zo" kind="relationship" relationship="viewControllers" id="wiq-aQ-bJ6"/>
                         <segue destination="E9p-e4-v0P" kind="relationship" relationship="viewControllers" id="XKs-vV-fft"/>
-                        <segue destination="Vs1-aP-nCj" kind="relationship" relationship="viewControllers" id="cFv-4c-8WB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7Q-2m-UzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="412" y="79"/>
         </scene>
-        <!--Standings-->
+        <!--Favorites-->
         <scene sceneID="xkN-0u-31l">
             <objects>
                 <collectionViewController id="E9p-e4-v0P" sceneMemberID="viewController">
@@ -279,40 +305,13 @@
                             <outlet property="delegate" destination="E9p-e4-v0P" id="zmo-yW-pAF"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Standings" id="JUl-cg-wM7"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" selectedImage="star.fill" catalog="system" id="JUl-cg-wM7">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbk-HF-fz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="773"/>
-        </scene>
-        <!--Betting-->
-        <scene sceneID="enK-0q-VZJ">
-            <objects>
-                <tableViewController id="Vs1-aP-nCj" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xWv-Mc-zgY">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kYl-zl-1Y4">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kYl-zl-1Y4" id="glt-8q-JbN">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Vs1-aP-nCj" id="7mh-sO-v5I"/>
-                            <outlet property="delegate" destination="Vs1-aP-nCj" id="wl5-dD-5YD"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Betting" id="0eB-f6-Gc8"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LCj-it-IVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2033" y="518"/>
+            <point key="canvasLocation" x="2658" y="477"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="ZI9-ey-xyn">
@@ -333,9 +332,30 @@
             </objects>
             <point key="canvasLocation" x="1516.8224299065419" y="-410.15118790496763"/>
         </scene>
+        <!--Teams-->
+        <scene sceneID="apl-xV-8BG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NBk-tG-7zo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Teams" image="person.3.fill" catalog="system" id="w0P-nu-Njd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sxp-k2-f3T">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8IB-yz-J7K" kind="relationship" relationship="rootViewController" id="HIK-vR-8H1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oal-f7-0fL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3832.7102803738317" y="-187.25701943844493"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
