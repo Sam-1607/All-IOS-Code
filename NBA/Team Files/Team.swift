@@ -141,6 +141,10 @@ struct Team: Codable {
 }
 
 struct TeamLeague: Codable, TeamCollectionRequireMents {
+    var ids: Int? {
+        return id
+    }
+    
     var displayText: String {
         return name
     }

@@ -1,31 +1,22 @@
 //
-//  TeamCollectionViewController.swift
+//  TeamSeasonCollectionViewController.swift
 //  NBA
 //
-//  Created by Sam Hiatt  on 5/11/22.
+//  Created by Sam Hiatt  on 5/17/22.
 //
 
 import UIKit
-import AVKit
-import AVFoundation
 
+private let reuseIdentifier = "seasonTeamCollectionItem" // DOES THE IDENTIFIER MATTER SINCE I ONLY HAVE ONE IN STORY BOARD
 
-
-private let reuseIdentifier = "teamCollectionItem"  // DOES THE IDENTIFIER MATTER SINCE I ONLY HAVE ONE IN STORY BOARD
-
-class TeamCollectionViewController: UICollectionViewController {
+class TeamSeasonCollectionViewController: UICollectionViewController {
     
-    var teamItems: [TeamCollectionRequireMents] = []
-    
+    var seasonItems: [TeamCollectionRequireMents] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.clearsSelectionOnViewWillAppear = false
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
 
     /*
@@ -48,23 +39,18 @@ class TeamCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return teamItems.count
+        return seasonItems.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LTSCollectionViewCell else { return UICollectionViewCell() }
-        
-        let teamItems = teamItems[indexPath.row]
-        cell.setTeam(teams: teamItems)
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LTSCollectionViewCell else { return UICollectionViewCell() }
+        let season = seasonItems[indexPath.row]
+        cell.setTeam(teams: season)
+    
+        // Configure the cell
+    
         return cell
     }
-    
-    
-
-    
-    
-    
 
     // MARK: UICollectionViewDelegate
 

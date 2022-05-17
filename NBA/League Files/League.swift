@@ -15,6 +15,10 @@ struct Response: Codable {
 }
 
 struct League: Codable, TeamCollectionRequireMents {
+    var ids: Int? {
+        return id
+    }
+    
     
     var displayText: String {
         return name
@@ -38,6 +42,10 @@ struct Country: Codable {
 }
 
 struct Season: Codable, TeamCollectionRequireMents {
+    var ids: Int? {
+        return nil
+    }
+    
     var displayText: String {
         return "\(season)"
     }
