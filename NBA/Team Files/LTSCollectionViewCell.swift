@@ -15,17 +15,14 @@ class LTSCollectionViewCell: UICollectionViewCell {
     
     func setTeam(teams: TeamCollectionRequireMents) {
         
-        self.collectionViewLabel.text = teams.displayText
-        
-        if let imageUrlString = teams.displayImage  {
-            let imageUrl = URL(string: imageUrlString)!
-            DispatchQueue.main.async {
-                let imageData = try? Data(contentsOf: imageUrl)
-                self.collectionViewImage.image = UIImage(data: imageData!)
-            }
+        if  let displayText = teams.displayText {
+            self.collectionViewLabel.text = displayText
         } else {
-            self.collectionViewImage.image = UIImage(named: "seasonLogo")
+            self.collectionViewLabel.text = "N/A"
         }
-        
+            
+        if let imageUrlString = teams.displayImage  {
+        collectionViewImage.sd_setImage(with: URL(string: imageUrlString)!)
+        }
     }
 }

@@ -12,7 +12,7 @@ import AVFoundation
 
 protocol TeamCollectionRequireMents {
     
-    var displayText: String { get  }
+    var displayText: String? { get  }
     var displayImage: String? { get }
     var ids: Int? { get }
     
@@ -21,34 +21,31 @@ protocol TeamCollectionRequireMents {
 private let reuseIdentifier = "leagueCollectionItem"
 
 class TeamLeagueCollectionViewController: UICollectionViewController {
-    var leagueTableView = LeagueTableViewController()
-    
+    var leagueNetworkCall = LeagueNetworkController()
+    var level: Level! = .league
     var leagueItems: [TeamCollectionRequireMents] = []
     let playerController = AVPlayerViewController()
     var player: AVPlayer?
+    
+    static func fromStoryboard(level: Level) -> TeamLeagueCollectionViewController? {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "teamLeagueCollectionView") as? TeamLeagueCollectionViewController
+        vc?.level = level
+        return vc
+    }
+
+    enum Level {
+        case league, season, team
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        loadVideo(resource: "teamLoader", fileType: "mp4")
-        // Do any additional setup after loading the view.
+        self.collectionView.backgroundColor = .black
+//        self.collectionView!.register(LTSCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        fetchData()
+       // loadVideo(resource: "teamLoader", fileType: "mp4")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -64,8 +61,8 @@ class TeamLeagueCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LTSCollectionViewCell else { return UICollectionViewCell() }
-        let leagueCollectionItem = leagueItems[indexPath.row]
-        cell.setTeam(teams: leagueCollectionItem)
+        let collectionItem = leagueItems[indexPath.row]
+        cell.setTeam(teams: collectionItem)
         
     
         // Configure the cell
@@ -75,11 +72,42 @@ class TeamLeagueCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let leagueCollectionItem = leagueItems[indexPath.row]
-        if let leagueID = leagueCollectionItem.ids {
-            leagueParam = "?league=\(leagueID)"
+//        if let leagueID = leagueCollectionItem.ids {
+//           / leagueParam = "?league=\(leagueID)"
+//        }
+        switch level! {
+        case .league:
+            if let vc = TeamLeagueCollectionViewController.fromStoryboard(level: .season) {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        case .season:
+            break
+            if let vc = TeamLeagueCollectionViewController.fromStoryboard(level: .team) {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        case .team:
+            break
+            // go to the detail page (Create Later)
         }
         
-        
+    }
+    
+    //MARK: Fetch Data
+    
+    func fetchData() {
+        leagueNetworkCall.fetch { result in
+            switch result {
+            case .success(let leage):
+                self.leagueItems = leage
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     //MARK: Animation Config

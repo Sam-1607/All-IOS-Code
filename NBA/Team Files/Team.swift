@@ -145,7 +145,7 @@ struct TeamLeague: Codable, TeamCollectionRequireMents {
         return id
     }
     
-    var displayText: String {
+    var displayText: String? {
         return name
     }
     

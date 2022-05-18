@@ -20,7 +20,7 @@ struct League: Codable, TeamCollectionRequireMents {
     }
     
     
-    var displayText: String {
+    var displayText: String? {
         return name
     }
     
@@ -46,7 +46,7 @@ struct Season: Codable, TeamCollectionRequireMents {
         return nil
     }
     
-    var displayText: String {
+    var displayText: String? {
         return "\(season)"
     }
     var displayImage: String? {

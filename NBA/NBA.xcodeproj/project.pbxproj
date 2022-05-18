@@ -94,9 +94,9 @@
 				7D04A74C2805CC500010F674 /* Main.storyboard */,
 				7D04A7512805CC530010F674 /* LaunchScreen.storyboard */,
 				7D04A74F2805CC530010F674 /* Assets.xcassets */,
+				7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */,
 				7D92374A281C627300C43462 /* launchScreen.mp4 */,
 				7D7F02CA2833636D00F5F5E6 /* favoritesScreen.mp4 */,
-				7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */,
 				7D04A7542805CC530010F674 /* Info.plist */,
 			);
 			path = NBA;

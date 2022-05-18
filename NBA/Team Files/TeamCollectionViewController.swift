@@ -24,6 +24,8 @@ class TeamCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         
     }

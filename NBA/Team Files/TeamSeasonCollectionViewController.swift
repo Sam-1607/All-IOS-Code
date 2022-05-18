@@ -46,7 +46,10 @@ class TeamSeasonCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LTSCollectionViewCell else { return UICollectionViewCell() }
         let season = seasonItems[indexPath.row]
         cell.setTeam(teams: season)
-    
+//        if let displayText = season.displayText {
+//            seasonParam = "&season=\(displayText.filter("0123456789-.".contains))"
+//        }
+//       
         // Configure the cell
     
         return cell
