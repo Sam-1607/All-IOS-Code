@@ -141,6 +141,10 @@ struct Team: Codable {
 }
 
 struct TeamLeague: Codable, TeamCollectionRequireMents {
+    var seasonStuff: [Season]? {
+        return nil
+    }
+    
     var ids: Int? {
         return id
     }

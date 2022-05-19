@@ -15,6 +15,10 @@ struct Response: Codable {
 }
 
 struct League: Codable, TeamCollectionRequireMents {
+    var seasonStuff: [Season]? {
+        return seasons
+    }
+    
     var ids: Int? {
         return id
     }
@@ -23,7 +27,7 @@ struct League: Codable, TeamCollectionRequireMents {
     var displayText: String? {
         return name
     }
-    
+        
     var displayImage: String? {
         return logo
     }
@@ -41,17 +45,26 @@ struct Country: Codable {
     var flag: String?
 }
 
-struct Season: Codable, TeamCollectionRequireMents {
-    var ids: Int? {
-        return nil
-    }
-    
-    var displayText: String? {
-        return "\(season)"
-    }
-    var displayImage: String? {
-        return nil
-    }
+struct SeasonResponse: Codable {
+    var response: [Season]
+}
+
+struct Season: Codable {
+//    var seasonStuff: [Season]? {
+//        return nil
+//    }
+//    
+//    var ids: Int? {
+//        return nil
+//    }
+//    
+//    
+//    var displayText: String? {
+//        return "\(season)"
+//    }
+//    var displayImage: String? {
+//        return nil
+//    }
     
     let season: StringOrInt
     let start: String

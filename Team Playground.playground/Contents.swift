@@ -123,7 +123,7 @@ struct Game: Codable {
 }
 
 struct TeamCountry: Codable {
-    var id: Int
+    var id: Int?
     var flag: String
     var name: String
 }
@@ -157,7 +157,7 @@ struct NOData: Error {
     
 }
 
-var testURL = "https://api-basketball.p.rapidapi.com/statistics?league=12&season=2019-2020&team=133"
+var testURL = "https://api-basketball.p.rapidapi.com/statistics?league=13&season=2019-2020&team=133"
 
 func fetch2(completion: @escaping(Result<TeamStats, Error>) -> Void, myURL: String) {
     let urlRequest = NSMutableURLRequest(url: NSURL(string: myURL)! as URL)

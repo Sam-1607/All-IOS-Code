@@ -83,7 +83,6 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
             self.navigationController?.pushViewController(popUpView, animated: true)
             let league = filteredLeagues[indexPath.row]
             popUpView.league = league
-        
         }
     }
     
