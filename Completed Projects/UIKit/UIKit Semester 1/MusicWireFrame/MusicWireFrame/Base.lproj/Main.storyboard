@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicWireFrame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eww-0H-fuE">
+                                <rect key="frame" x="20" y="44" width="388" height="387"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eww-0H-fuE" secondAttribute="height" multiplier="1:1" constant="1" id="TOJ-hd-1xE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIw-A2-BP2">
+                                <rect key="frame" x="83.666666666666686" y="457" width="83.333333333333314" height="83.666666666666629"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sIw-A2-BP2" secondAttribute="height" multiplier="1:1" id="zjy-bZ-E3j"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIx-ay-VQm">
+                                <rect key="frame" x="172.33333333333334" y="457" width="83.333333333333343" height="83.666666666666629"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qIx-ay-VQm" secondAttribute="height" multiplier="1:1" id="Ibm-MH-fzk"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-pK-wVc">
+                                <rect key="frame" x="261" y="457" width="83.333333333333314" height="83.666666666666629"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gbf-pK-wVc" secondAttribute="height" multiplier="1:1" id="bQz-vV-5qp"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sup-ZK-9QU">
+                                <rect key="frame" x="81" y="471" width="266" height="55.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK3-l5-oBe">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="55.666666666666664"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="touchedDown:" destination="BYZ-38-t0r" eventType="touchDown" id="fCx-I2-O2d"/>
+                                            <action selector="touchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="afO-3J-4y9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okD-ov-lOo">
+                                        <rect key="frame" x="88.666666666666657" y="0.0" width="88.666666666666657" height="55.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="play.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35"/>
+                                        </state>
+                                        <state key="selected">
+                                            <imageReference key="image" image="pause.fill" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGx-hI-pkO"/>
+                                            <action selector="touchedDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yU-Lk-3gJ"/>
+                                            <action selector="touchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M2c-Ze-Q04"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYy-2R-CFU">
+                                        <rect key="frame" x="177.33333333333331" y="0.0" width="88.666666666666686" height="55.666666666666664"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="touchedDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AUl-QO-dJm"/>
+                                            <action selector="touchedUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4d-Wc-dzY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sIw-A2-BP2" firstAttribute="height" secondItem="mK3-l5-oBe" secondAttribute="height" multiplier="1.5" id="1I6-j0-5TY"/>
+                            <constraint firstItem="Sup-ZK-9QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6dB-GN-7ri"/>
+                            <constraint firstItem="eww-0H-fuE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8b1-nA-zPf"/>
+                            <constraint firstItem="qIx-ay-VQm" firstAttribute="height" secondItem="okD-ov-lOo" secondAttribute="height" multiplier="1.5" id="GNK-lO-ViU"/>
+                            <constraint firstItem="gbf-pK-wVc" firstAttribute="centerY" secondItem="PYy-2R-CFU" secondAttribute="centerY" id="IJ8-fQ-V3N"/>
+                            <constraint firstItem="Sup-ZK-9QU" firstAttribute="top" secondItem="eww-0H-fuE" secondAttribute="bottom" constant="40" id="Ie5-zX-ghC"/>
+                            <constraint firstItem="gbf-pK-wVc" firstAttribute="centerX" secondItem="PYy-2R-CFU" secondAttribute="centerX" id="M8O-dC-DV5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eww-0H-fuE" secondAttribute="trailing" constant="20" id="Mx8-FQ-CGt"/>
+                            <constraint firstItem="sIw-A2-BP2" firstAttribute="centerX" secondItem="mK3-l5-oBe" secondAttribute="centerX" id="Nnf-N0-4pq"/>
+                            <constraint firstItem="gbf-pK-wVc" firstAttribute="height" secondItem="PYy-2R-CFU" secondAttribute="height" multiplier="1.5" id="Riy-HW-iaD"/>
+                            <constraint firstItem="qIx-ay-VQm" firstAttribute="centerX" secondItem="okD-ov-lOo" secondAttribute="centerX" id="UQA-a2-QZR"/>
+                            <constraint firstItem="qIx-ay-VQm" firstAttribute="centerY" secondItem="okD-ov-lOo" secondAttribute="centerY" id="e9H-Oo-3D3"/>
+                            <constraint firstItem="eww-0H-fuE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hcJ-Bv-WYr"/>
+                            <constraint firstItem="sIw-A2-BP2" firstAttribute="centerY" secondItem="mK3-l5-oBe" secondAttribute="centerY" id="vwC-Pl-KhR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumView" destination="eww-0H-fuE" id="DzQ-Zv-wQ2"/>
+                        <outlet property="forwardBackground" destination="gbf-pK-wVc" id="b2y-Tv-11N"/>
+                        <outlet property="forwardButton" destination="PYy-2R-CFU" id="QbR-og-EQn"/>
+                        <outlet property="playBackground" destination="qIx-ay-VQm" id="Spu-t6-80r"/>
+                        <outlet property="playButton" destination="okD-ov-lOo" id="iyK-bE-cZN"/>
+                        <outlet property="reverseBackground" destination="sIw-A2-BP2" id="KqG-rX-Ez4"/>
+                        <outlet property="reverseButton" destination="mK3-l5-oBe" id="iii-Tf-j3l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.22429906542056" y="97.192224622030238"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
