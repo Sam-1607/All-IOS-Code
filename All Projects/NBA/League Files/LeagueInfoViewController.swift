@@ -39,6 +39,12 @@ class LeagueInfoViewController: UIViewController, UITableViewDataSource {
                 cell.seasonYear.text = "Season \(result)"
                 cell.seasonStart.text = "Start: \(season.start)"
                 cell.seasonEnd.text = "End: \(season.end)"
+                cell.layer.borderColor = UIColor.white.cgColor
+                cell.layer.cornerRadius = 10
+                cell.layer.borderWidth = 3
+                
+               
+               
             }
         }
         tableView.backgroundColor = .black
