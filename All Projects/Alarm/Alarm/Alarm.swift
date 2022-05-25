@@ -14,7 +14,7 @@ struct Alarm {
     
     var date: Date
     
-    init(date: Date, notificationID: String) {
+    init(date: Date, notificationID: String?) {
         self.date = date
         self.notificationID = notificationID ?? UUID().uuidString
     }
@@ -39,19 +39,21 @@ struct Alarm {
         }
     }
     
-    func schedule(completion: @escaping (Bool)-> ()) {
+    func schedule(completion: @escaping (Bool) -> ()) {
         authorizeIfNeeded { (granted) in
             guard granted else {
                 DispatchQueue.main.async {
                     completion(false)
                 }
                 return
+            }
+
                 
                 let content = UNMutableNotificationContent()
                 content.title = "Alarm"
                 content.body = "Beep Beep"
                 content.sound = UNNotificationSound.default
-                content.categoryIdentifier = Alarm.notificationCategoryID
+                content.categoryIdentifier = Alarm.notificationCategoryId
                 
                 let triggeredComponents = Calendar.current.dateComponents([.minute, .hour, .day, .month, .year], from: self.date)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggeredComponents, repeats: false)
@@ -80,26 +82,22 @@ struct Alarm {
 }
 
 extension Alarm: Codable {
-    static let notificationCategoryID = "AlarmNotification"
+    static let notificationCategoryId = "AlarmNotification"
     static let snoozeActionID = "snooze"
-    
-   
-    
     private static let alarmURL: URL = {
         guard let baseURL = FileManager.default.urls(for:
-                .documentDirectory, in: .userDomainMask).first else {
+           .documentDirectory, in: .userDomainMask).first else {
             fatalError("Can't get URL for documents directory.")
         }
         return baseURL.appendingPathComponent("ScheduledAlarm")
     }()
-    
-    
     static var scheduled: Alarm? {
         get {
             guard let data = try? Data(contentsOf: alarmURL) else {
-                return nil
+                    return nil
             }
-            return try? JSONDecoder().decode(Alarm.self, from: data)
+            return try? JSONDecoder().decode(Alarm.self,
+               from: data)
         }
         set {
             if let alarm = newValue {
@@ -108,7 +106,8 @@ extension Alarm: Codable {
             } else {
                 try? FileManager.default.removeItem(at: alarmURL)
             }
-            NotificationCenter.default.post(name: .alarmUpdated, object: nil)
+            NotificationCenter.default.post(name: .alarmUpdated,
+               object: nil)
         }
     }
 }
