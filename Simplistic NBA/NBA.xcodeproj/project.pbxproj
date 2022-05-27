@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D04A7472805CC500010F674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D04A7462805CC500010F674 /* AppDelegate.swift */; };
+		7D04A7492805CC500010F674 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D04A7482805CC500010F674 /* SceneDelegate.swift */; };
+		7D04A74E2805CC500010F674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D04A74C2805CC500010F674 /* Main.storyboard */; };
+		7D04A7502805CC530010F674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D04A74F2805CC530010F674 /* Assets.xcassets */; };
+		7D04A7532805CC530010F674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D04A7512805CC530010F674 /* LaunchScreen.storyboard */; };
+		7D1934C8280874CE001351FF /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */; };
+		7D243BE92829773D00BA22ED /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D243BE82829773D00BA22ED /* Team.swift */; };
+		7D3BB0EE280736CB0074B50C /* LeagueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */; };
+		7D4BE11928198F4500E49CD6 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */; };
+		7D50EB2E28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB2D28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift */; };
+		7D50EB3028401B1000530B3D /* LeagueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB2F28401B1000530B3D /* LeagueCollectionViewCell.swift */; };
+		7D50EB3228405AFC00530B3D /* LeagueSeasonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB3128405AFC00530B3D /* LeagueSeasonCollectionViewController.swift */; };
+		7D50EB3428405B1700530B3D /* LeagueSeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB3328405B1700530B3D /* LeagueSeasonCollectionViewCell.swift */; };
+		7D50EB362840740A00530B3D /* TeamsNetworkControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */; };
+		7D61F2DA2835CD6E0091E91C /* TeamsAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61F2D92835CD6E0091E91C /* TeamsAll.swift */; };
+		7D7A5B3B282EABE30092F473 /* LeagueInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */; };
+		7D7F02CC283363ED00F5F5E6 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F02CB283363ED00F5F5E6 /* FavoritesCollectionViewController.swift */; };
+		7D92374B281C627300C43462 /* launchScreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D92374A281C627300C43462 /* launchScreen.mp4 */; };
+		7D98F030282CC109008914E8 /* LeagueInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98F02F282CC108008914E8 /* LeagueInfoViewController.swift */; };
+		7DA628A72806697300A04675 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A62806697300A04675 /* League.swift */; };
+		7DA628A928071AAA00A04675 /* LeagueNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7D04A7432805CC500010F674 /* NBA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D04A7462805CC500010F674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D04A7482805CC500010F674 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7D04A74D2805CC500010F674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7D04A74F2805CC530010F674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D04A7522805CC530010F674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D04A7542805CC530010F674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
+		7D243BE82829773D00BA22ED /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewController.swift; sourceTree = "<group>"; };
+		7D50EB2D28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCollectionCollectionViewController.swift; sourceTree = "<group>"; };
+		7D50EB2F28401B1000530B3D /* LeagueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D50EB3128405AFC00530B3D /* LeagueSeasonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSeasonCollectionViewController.swift; sourceTree = "<group>"; };
+		7D50EB3328405B1700530B3D /* LeagueSeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSeasonCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsNetworkControllers.swift; sourceTree = "<group>"; };
+		7D61F2D92835CD6E0091E91C /* TeamsAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsAll.swift; sourceTree = "<group>"; };
+		7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueInfoTableViewCell.swift; sourceTree = "<group>"; };
+		7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamLoader.mp4; sourceTree = "<group>"; };
+		7D7F02CA2833636D00F5F5E6 /* favoritesScreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = favoritesScreen.mp4; sourceTree = "<group>"; };
+		7D7F02CB283363ED00F5F5E6 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		7D92374A281C627300C43462 /* launchScreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = launchScreen.mp4; sourceTree = "<group>"; };
+		7D98F02F282CC108008914E8 /* LeagueInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueInfoViewController.swift; sourceTree = "<group>"; };
+		7DA628A62806697300A04675 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueNetworkController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D04A7402805CC500010F674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D4BE11928198F4500E49CD6 /* SDWebImageSVGCoder in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D04A73A2805CC500010F674 = {
+			isa = PBXGroup;
+			children = (
+				7D7F02CD2833640300F5F5E6 /* Favorites Files */,
+				7D243BEA2829774A00BA22ED /* Team Files */,
+				7D74DB40281837690015E7CC /* League Files */,
+				7D04A7452805CC500010F674 /* NBA */,
+				7D04A7442805CC500010F674 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7D04A7442805CC500010F674 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D04A7432805CC500010F674 /* NBA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D04A7452805CC500010F674 /* NBA */ = {
+			isa = PBXGroup;
+			children = (
+				7D04A7462805CC500010F674 /* AppDelegate.swift */,
+				7D04A7482805CC500010F674 /* SceneDelegate.swift */,
+				7D04A74C2805CC500010F674 /* Main.storyboard */,
+				7D04A7512805CC530010F674 /* LaunchScreen.storyboard */,
+				7D04A74F2805CC530010F674 /* Assets.xcassets */,
+				7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */,
+				7D92374A281C627300C43462 /* launchScreen.mp4 */,
+				7D7F02CA2833636D00F5F5E6 /* favoritesScreen.mp4 */,
+				7D04A7542805CC530010F674 /* Info.plist */,
+			);
+			path = NBA;
+			sourceTree = "<group>";
+		};
+		7D243BEA2829774A00BA22ED /* Team Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D50EB3128405AFC00530B3D /* LeagueSeasonCollectionViewController.swift */,
+				7D50EB3328405B1700530B3D /* LeagueSeasonCollectionViewCell.swift */,
+				7D50EB2F28401B1000530B3D /* LeagueCollectionViewCell.swift */,
+				7D50EB2D28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift */,
+				7D243BE82829773D00BA22ED /* Team.swift */,
+				7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */,
+				7D61F2D92835CD6E0091E91C /* TeamsAll.swift */,
+			);
+			path = "Team Files";
+			sourceTree = "<group>";
+		};
+		7D74DB40281837690015E7CC /* League Files */ = {
+			isa = PBXGroup;
+			children = (
+				7DA628A62806697300A04675 /* League.swift */,
+				7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */,
+				7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */,
+				7D98F02F282CC108008914E8 /* LeagueInfoViewController.swift */,
+				7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */,
+				7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */,
+			);
+			path = "League Files";
+			sourceTree = "<group>";
+		};
+		7D7F02CD2833640300F5F5E6 /* Favorites Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F02CB283363ED00F5F5E6 /* FavoritesCollectionViewController.swift */,
+			);
+			path = "Favorites Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D04A7422805CC500010F674 /* NBA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D04A7572805CC530010F674 /* Build configuration list for PBXNativeTarget "NBA" */;
+			buildPhases = (
+				7D04A73F2805CC500010F674 /* Sources */,
+				7D04A7402805CC500010F674 /* Frameworks */,
+				7D04A7412805CC500010F674 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NBA;
+			packageProductDependencies = (
+				7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */,
+			);
+			productName = NBA;
+			productReference = 7D04A7432805CC500010F674 /* NBA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D04A73B2805CC500010F674 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					7D04A7422805CC500010F674 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7D04A73E2805CC500010F674 /* Build configuration list for PBXProject "NBA" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D04A73A2805CC500010F674;
+			packageReferences = (
+				7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+			);
+			productRefGroup = 7D04A7442805CC500010F674 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D04A7422805CC500010F674 /* NBA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D04A7412805CC500010F674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D04A7532805CC530010F674 /* LaunchScreen.storyboard in Resources */,
+				7D04A7502805CC530010F674 /* Assets.xcassets in Resources */,
+				7D92374B281C627300C43462 /* launchScreen.mp4 in Resources */,
+				7D04A74E2805CC500010F674 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D04A73F2805CC500010F674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D50EB3428405B1700530B3D /* LeagueSeasonCollectionViewCell.swift in Sources */,
+				7DA628A928071AAA00A04675 /* LeagueNetworkController.swift in Sources */,
+				7D50EB3028401B1000530B3D /* LeagueCollectionViewCell.swift in Sources */,
+				7D50EB362840740A00530B3D /* TeamsNetworkControllers.swift in Sources */,
+				7D1934C8280874CE001351FF /* LeagueTableViewCell.swift in Sources */,
+				7D243BE92829773D00BA22ED /* Team.swift in Sources */,
+				7D50EB3228405AFC00530B3D /* LeagueSeasonCollectionViewController.swift in Sources */,
+				7D50EB2E28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift in Sources */,
+				7D7F02CC283363ED00F5F5E6 /* FavoritesCollectionViewController.swift in Sources */,
+				7D04A7472805CC500010F674 /* AppDelegate.swift in Sources */,
+				7DA628A72806697300A04675 /* League.swift in Sources */,
+				7D7A5B3B282EABE30092F473 /* LeagueInfoTableViewCell.swift in Sources */,
+				7D61F2DA2835CD6E0091E91C /* TeamsAll.swift in Sources */,
+				7D04A7492805CC500010F674 /* SceneDelegate.swift in Sources */,
+				7D3BB0EE280736CB0074B50C /* LeagueTableViewController.swift in Sources */,
+				7D98F030282CC109008914E8 /* LeagueInfoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7D04A74C2805CC500010F674 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D04A74D2805CC500010F674 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7D04A7512805CC530010F674 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D04A7522805CC530010F674 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7D04A7552805CC530010F674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7D04A7562805CC530010F674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D04A7582805CC530010F674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49669334A2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NBA/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Sam.NBA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D04A7592805CC530010F674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49669334A2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NBA/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Sam.NBA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D04A73E2805CC500010F674 /* Build configuration list for PBXProject "NBA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D04A7552805CC530010F674 /* Debug */,
+				7D04A7562805CC530010F674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D04A7572805CC530010F674 /* Build configuration list for PBXNativeTarget "NBA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D04A7582805CC530010F674 /* Debug */,
+				7D04A7592805CC530010F674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D4BE11828198F4500E49CD6 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D4BE11728198F4500E49CD6 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 7D04A73B2805CC500010F674 /* Project object */;
+}
