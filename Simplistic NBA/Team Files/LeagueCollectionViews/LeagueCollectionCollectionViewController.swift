@@ -1,5 +1,5 @@
 //
-//  LeagueSeasonCollectionViewController.swift
+//  LeagueCollectionCollectionViewController.swift
 //  NBA
 //
 //  Created by Sam Hiatt  on 5/26/22.
@@ -7,15 +7,19 @@
 
 import UIKit
 
-private let reuseIdentifier = "SeasonCell"
+private let reuseIdentifier = "firstLeagueCollectionViewCell"
 
-class LeagueSeasonCollectionViewController: UICollectionViewController {
+class LeagueCollectionCollectionViewController: UICollectionViewController {
     
-    var league: League?
+    
+    var leagueNetworkCall = LeagueNetworkController()
+    var leagueItems: [League] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.collectionView.backgroundColor = .black
+        super.viewDidLoad()
+        fetchLeagues()
+        
     }
     
     /*
@@ -31,28 +35,49 @@ class LeagueSeasonCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return league!.seasons.count
+        return leagueItems.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LeagueSeasonCollectionViewCell else { return UICollectionViewCell() }
-        let season = league!.seasons[indexPath.row]
-        
-            cell.setSeason(season: season)
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//        }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> LeagueCollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LeagueCollectionViewCell else { return LeagueCollectionViewCell() }
+        let league = leagueItems[indexPath.row]
+        cell.setLeague(league: league)
         cell.backgroundColor = .black
-        cell.seasonLabel.textColor = .white
-        // Configure the cell
         
         return cell
+    }
+    
+    //MARK: Date Source Call
+    
+    func fetchLeagues() {
+        leagueNetworkCall.fetch { result in
+            switch result {
+            case .success(let leagues):
+                self.leagueItems = leagues
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let seasonView = storyboard?.instantiateViewController(withIdentifier: "LeagueSeasonView") as? LeagueSeasonCollectionViewController {
+        let league = leagueItems[indexPath.row]
+            leagueParam = "?league=\(league.id)"
+            self.navigationController?.pushViewController(seasonView, animated: true)
+            seasonView.league = league
+            
+        }
     }
     
     // MARK: UICollectionViewDelegate
