@@ -7,6 +7,10 @@
 
 import Foundation
 
+var leagueFlagImageURL = ""
+var leagueLogoImageURL = ""
+var teamLogoImageURL = ""
+
 var leagueParam = ""
 var seasonParam = ""
 var teamParam = ""
@@ -38,14 +42,13 @@ class AllTeamsNetworkController {
     
     
     func fetchTeam(completion: @escaping(Result<TeamStats, Error>) -> Void) {
-        let urlRequest = NSMutableURLRequest(url: NSURL(string: "https://api-basketball.p.rapidapi.com/leagues")! as URL)
+        let urlRequest = NSMutableURLRequest(url: NSURL(string: "https://api-basketball.p.rapidapi.com/statistics?league=12&season=2019-2020&team=133")! as URL)
         urlRequest.allHTTPHeaderFields = [
             "X-RapidAPI-Host": "api-basketball.p.rapidapi.com",
-            "X-RapidAPI-Key": "3e4fa7a698msha88ceb1d7d66dc8p154ec3jsn31c14c39616b"
+                "X-RapidAPI-Key": "3e4fa7a698msha88ceb1d7d66dc8p154ec3jsn31c14c39616b"
         ]
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { data, response, error in
             let decoder = JSONDecoder()
-            
             if let data = data {
                 do {
                     let decodedResponse = try decoder.decode(TeamResponse.self, from: data)

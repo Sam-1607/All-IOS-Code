@@ -15,9 +15,12 @@ class AllTeamsCollectionViewCell: UICollectionViewCell {
     func setTeam(team: AllTeams) {
         self.teamNameLabel.textColor = .white
         self.teamNameLabel.text = team.name
-        self.teamLogoImageView.sd_setImage(with: URL(string: team.logo))
         self.teamLogoImageView.layer.borderWidth = 3
         self.teamLogoImageView.layer.cornerRadius = 25
         self.teamLogoImageView.layer.borderColor = UIColor.white.cgColor
+        
+        DispatchQueue.main.async {
+            self.teamLogoImageView.sd_setImage(with: URL(string: team.logo))
+        }
     }
 }

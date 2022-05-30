@@ -116,12 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				7D5EEB41284312150088F9F8 /* LeagueCollectionViews */,
+				7D5EEB42284312340088F9F8 /* SeasonCollectionViews */,
 				7D5EEB40284311C80088F9F8 /* AllTeamsCollection */,
-				7D5EEB42284312340088F9F8 /* LeaguesCollectionViews */,
-				7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */,
-				7D5EEB43284312580088F9F8 /* TeamViewController.swift */,
-				7D61F2D92835CD6E0091E91C /* TeamsAll.swift */,
-				7D243BE82829773D00BA22ED /* Team.swift */,
+				7DA248FD2845181E00F39842 /* TeamViews */,
+				7DA248FE2845184000F39842 /* Models&Network */,
 			);
 			path = "Team Files";
 			sourceTree = "<group>";
@@ -144,24 +142,21 @@
 			path = LeagueCollectionViews;
 			sourceTree = "<group>";
 		};
-		7D5EEB42284312340088F9F8 /* LeaguesCollectionViews */ = {
+		7D5EEB42284312340088F9F8 /* SeasonCollectionViews */ = {
 			isa = PBXGroup;
 			children = (
 				7D50EB3128405AFC00530B3D /* LeagueSeasonCollectionViewController.swift */,
 				7D50EB3328405B1700530B3D /* LeagueSeasonCollectionViewCell.swift */,
 			);
-			path = LeaguesCollectionViews;
+			path = SeasonCollectionViews;
 			sourceTree = "<group>";
 		};
 		7D74DB40281837690015E7CC /* League Files */ = {
 			isa = PBXGroup;
 			children = (
-				7DA628A62806697300A04675 /* League.swift */,
-				7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */,
-				7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */,
-				7D98F02F282CC108008914E8 /* LeagueInfoViewController.swift */,
-				7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */,
-				7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */,
+				7DA248FF284518A600F39842 /* Models&Network */,
+				7DA24900284518C600F39842 /* LeagueTableView */,
+				7DA24901284518F500F39842 /* InfoViews */,
 			);
 			path = "League Files";
 			sourceTree = "<group>";
@@ -172,6 +167,51 @@
 				7D7F02CB283363ED00F5F5E6 /* FavoritesCollectionViewController.swift */,
 			);
 			path = "Favorites Files";
+			sourceTree = "<group>";
+		};
+		7DA248FD2845181E00F39842 /* TeamViews */ = {
+			isa = PBXGroup;
+			children = (
+				7D5EEB43284312580088F9F8 /* TeamViewController.swift */,
+			);
+			path = TeamViews;
+			sourceTree = "<group>";
+		};
+		7DA248FE2845184000F39842 /* Models&Network */ = {
+			isa = PBXGroup;
+			children = (
+				7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */,
+				7D61F2D92835CD6E0091E91C /* TeamsAll.swift */,
+				7D243BE82829773D00BA22ED /* Team.swift */,
+			);
+			path = "Models&Network";
+			sourceTree = "<group>";
+		};
+		7DA248FF284518A600F39842 /* Models&Network */ = {
+			isa = PBXGroup;
+			children = (
+				7DA628A62806697300A04675 /* League.swift */,
+				7DA628A828071AAA00A04675 /* LeagueNetworkController.swift */,
+			);
+			path = "Models&Network";
+			sourceTree = "<group>";
+		};
+		7DA24900284518C600F39842 /* LeagueTableView */ = {
+			isa = PBXGroup;
+			children = (
+				7D1934C7280874CE001351FF /* LeagueTableViewCell.swift */,
+				7D3BB0ED280736CB0074B50C /* LeagueTableViewController.swift */,
+			);
+			path = LeagueTableView;
+			sourceTree = "<group>";
+		};
+		7DA24901284518F500F39842 /* InfoViews */ = {
+			isa = PBXGroup;
+			children = (
+				7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */,
+				7D98F02F282CC108008914E8 /* LeagueInfoViewController.swift */,
+			);
+			path = InfoViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

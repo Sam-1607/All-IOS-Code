@@ -138,11 +138,10 @@ struct TeamCountry: Codable {
 struct Team: Codable {
     var id: Int
     var name: String
+    var logo: String
 }
 
 struct TeamLeague: Codable {
-   
-    
     var id: Int
     var name: String
     var season: String

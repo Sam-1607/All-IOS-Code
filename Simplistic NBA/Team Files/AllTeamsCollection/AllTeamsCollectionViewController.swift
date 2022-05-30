@@ -17,6 +17,7 @@ class AllTeamsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        
         self.collectionView.backgroundColor = .black
     }
     
@@ -41,9 +42,10 @@ class AllTeamsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if let teamView = storyboard?.instantiateViewController(withIdentifier: "TeamView") as? TeamViewController {
-        let team = teams[indexPath.row]
-        teamParam = "\(team.id)"
+            let team = teams[indexPath.row]
+            teamParam = "&team=\(team.id)"
             self.navigationController?.pushViewController(teamView, animated: true)
         }
     }
@@ -61,6 +63,6 @@ class AllTeamsCollectionViewController: UICollectionViewController {
             }
         }
     }
-
+    
     
 }

@@ -131,6 +131,7 @@ struct TeamCountry: Codable {
 struct Team: Codable {
     var id: Int
     var name: String
+    var logo: String
 }
 
 struct TeamLeague: Codable {
@@ -157,7 +158,11 @@ struct NOData: Error {
     
 }
 
-var testURL = "https://api-basketball.p.rapidapi.com/statistics?league=13&season=2014&team=96"
+var leagueParam = "?league=300"
+var seasonParam = "&season=2019-2020"
+var teamParam = "&team=133"
+
+var testURL = "https://api-basketball.p.rapidapi.com/statistics\(leagueParam)\(seasonParam)\(teamParam)"
 
 func fetch2(completion: @escaping(Result<TeamStats, Error>) -> Void, myURL: String) {
     let urlRequest = NSMutableURLRequest(url: NSURL(string: myURL)! as URL)
@@ -169,7 +174,6 @@ func fetch2(completion: @escaping(Result<TeamStats, Error>) -> Void, myURL: Stri
         let decoder = JSONDecoder()
         
         if let data = data {
-            print(String(data: data, encoding: .utf8))
             do {
                 let decodedResponse = try decoder.decode(TeamResponse.self, from: data)
                 completion(.success(decodedResponse.response))
