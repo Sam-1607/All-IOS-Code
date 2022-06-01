@@ -131,7 +131,7 @@ struct Game: Codable {
 
 struct TeamCountry: Codable {
     var id: Int
-    var flag: String
+    var flag: String?
     var name: String
 }
 

@@ -54,9 +54,7 @@ class LeagueSeasonCollectionViewController: UICollectionViewController {
                 let filteredSeason2 = intSeason + 1
                 seasonParam = "&season=\(filteredSeason)-\(filteredSeason2)"
             }
-            seasonParam = "&season=\(filteredSeason)"
-            print("seasonTest")
-            
+            seasonParam = "&season=\(filteredSeason)"            
         }
     }
     

@@ -158,9 +158,9 @@ struct NOData: Error {
     
 }
 
-var leagueParam = "?league=300"
+var leagueParam = "?league=18"
 var seasonParam = "&season=2019-2020"
-var teamParam = "&team=133"
+var teamParam = "&team=281"
 
 var testURL = "https://api-basketball.p.rapidapi.com/statistics\(leagueParam)\(seasonParam)\(teamParam)"
 
