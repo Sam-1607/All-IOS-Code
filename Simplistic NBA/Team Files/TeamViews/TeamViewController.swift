@@ -35,6 +35,10 @@ class TeamViewController: UIViewController {
         fetchAndSet()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchAndSet()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         fetchAndSet()
     }
@@ -46,14 +50,14 @@ class TeamViewController: UIViewController {
     
     func fetchAndSet() {
         fetchData()
-        if team != nil {
-                setTeam(team: team)
+        if let team = team {
+            setTeam(team: team)
             
         } else {
             leagueNameLabel.text = ""
             countryNameLabel.text = ""
             teamNameLabel.text = ""
-            teamNameTitleLabel.text = "This Team Has No Details To Show"
+            teamNameTitleLabel.text = "This Team Has No Details To Show 💩"
             teamNameTitleLabel.font = teamNameTitleLabel.font.withSize(20)
             gamesTitleLabel.text = ""
             gameDetailLabel.text = ""
@@ -62,6 +66,8 @@ class TeamViewController: UIViewController {
         }
     }
     
+    //MARK: API CALL
+    
     func fetchData() {
         teamNetworkController.fetchTeam { result in
             switch result {
@@ -69,26 +75,26 @@ class TeamViewController: UIViewController {
                 self.team = team
                 DispatchQueue.main.async {
                     self.view.reloadInputViews()
-
                 }
                 print(String(describing: self.team))
                 
             case .failure(let error):
-                print(error)
-                
+                print(error.localizedDescription)
             }
         }
     }
     
-    func setTeam(team: TeamStats?) {
-        if let team = team {
-            
+    //MARK: View Controller Styling/Setting Values
+    
+    func setTeam(team: TeamStats) {
             self.leagueImageView.sd_setImage(with: URL(string: team.league.logo))
+            
             if let flag = team.country.flag {
                 self.flagImageView.sd_setImage(with: URL(string: flag))
             } else {
                 self.flagImageView.image = UIImage(named: "logo")
             }
+            
             self.teamLogoImageView.sd_setImage(with: URL(string: team.team.logo))
             
             self.leagueImageView.layer.borderColor = UIColor.white.cgColor
@@ -111,6 +117,6 @@ class TeamViewController: UIViewController {
             self.gamesTitleLabel.text = "Games Details"
             self.pointsTitleLabel.text = "Points Details"
             self.navigationController?.title = "\(team.team.name)"
-        }
+        
     }
 }

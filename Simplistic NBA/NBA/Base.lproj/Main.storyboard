@@ -452,9 +452,9 @@
         <!--Team View Controller-->
         <scene sceneID="SKj-xN-atT">
             <objects>
-                <viewController storyboardIdentifier="TeamView" interfaceStyle="dark" id="bT4-6w-swT" customClass="TeamViewController" customModule="NBA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamView" useStoryboardIdentifierAsRestorationIdentifier="YES" interfaceStyle="dark" id="bT4-6w-swT" customClass="TeamViewController" customModule="NBA" customModuleProvider="target" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="tGx-Bo-fsf">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Odj-qD-j4I">
@@ -594,7 +594,6 @@
                         <viewLayoutGuide key="contentLayoutGuide" id="U7m-pw-ifj"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="Ljf-R5-jBC"/>
                     </scrollView>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <connections>
                         <outlet property="countryNameLabel" destination="XHQ-Yz-1L0" id="E1q-1u-3W1"/>
                         <outlet property="flagImageView" destination="O8W-ZT-mMe" id="4JK-hP-UVG"/>
