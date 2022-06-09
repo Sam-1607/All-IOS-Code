@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0049B428513990004BDC83 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 7D0049B328513990004BDC83 /* SDWebImageSVGCoder */; };
 		7D839CC528495CDB009CF635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D839CC428495CDB009CF635 /* AppDelegate.swift */; };
 		7D839CC728495CDB009CF635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D839CC628495CDB009CF635 /* SceneDelegate.swift */; };
 		7D839CC928495CDB009CF635 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D839CC828495CDB009CF635 /* GameViewController.swift */; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0049B428513990004BDC83 /* SDWebImageSVGCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = GuessTheFlagUIKit;
+			packageProductDependencies = (
+				7D0049B328513990004BDC83 /* SDWebImageSVGCoder */,
+			);
 			productName = GuessTheFlagUIKit;
 			productReference = 7D839CC128495CDB009CF635 /* GuessTheFlagUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 7D839CB828495CDB009CF635;
+			packageReferences = (
+				7D0049B228513990004BDC83 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+			);
 			productRefGroup = 7D839CC228495CDB009CF635 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +366,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7D0049B228513990004BDC83 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D0049B328513990004BDC83 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D0049B228513990004BDC83 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7D839CB928495CDB009CF635 /* Project object */;
 }

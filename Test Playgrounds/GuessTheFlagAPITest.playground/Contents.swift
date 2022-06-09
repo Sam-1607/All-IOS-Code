@@ -3,10 +3,10 @@ import PlaygroundSupport
 
 var country: String?
 
-var urlParameter  = "ad"
+var urlParameter  = "Armenia"
 
 func fetch() {
-    let url = URL(string: "https://countryflagsapi.com/png/\(urlParameter)")!
+    let url = URL(string: "https://countryflagsapi.com/svg/\(urlParameter)")!
     let urlResuest = URLRequest(url: url)
     
     let task = URLSession.shared.dataTask(with: urlResuest) { data, response, error in
