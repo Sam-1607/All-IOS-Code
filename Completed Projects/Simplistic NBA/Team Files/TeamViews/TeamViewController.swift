@@ -5,6 +5,7 @@
 //  Created by Sam Hiatt  on 5/28/22.
 //
 
+
 import UIKit
 
 class TeamViewController: UIViewController {
@@ -27,12 +28,10 @@ class TeamViewController: UIViewController {
     
     var teamNetworkController = AllTeamsNetworkController()
     var team: TeamStats?
-    
-    
-    
+    var barButtonSystemItem = UIBarButtonItemAppearance()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // fetchAndSet()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: (Any).self, action: #selector(addToFavorites))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,18 +53,18 @@ class TeamViewController: UIViewController {
     //MARK: API CALL
     
     func fetchData() {
-        teamNetworkController.fetchTeam { [self] result in
+        teamNetworkController.fetchTeam { result in
             switch result {
             case .success(let team):
                 self.team = team
                 DispatchQueue.main.async {
                     self.setTeam(team: self.team!)
-                    self.view.reloadInputViews()
                 }
                 print(String(describing: team))
                 
             case .failure(let error):
                 print(error)
+                // WHAT WILL HAPPEN ON THE INTERFACE IF IT RETURNS NIL?? CREATE THE UI FOR THAT
             }
         }
     }
@@ -73,6 +72,10 @@ class TeamViewController: UIViewController {
     //MARK: View Controller Styling/Setting Values
     
     func setTeam(team: TeamStats) {
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let underLineAttributedStringGameTitle = NSAttributedString(string: "Game Details", attributes: underlineAttribute)
+        let underlineAttributePointsTitle = NSAttributedString(string: "Points Details", attributes: underlineAttribute)
+        
         self.leagueImageView.sd_setImage(with: URL(string: team.league.logo))
         
         if let flag = team.country.flag {
@@ -93,16 +96,29 @@ class TeamViewController: UIViewController {
             self.teamLogoImageView.layer.borderWidth = 3
             
             self.leagueImageView.layer.cornerRadius = 25
-            self.flagImageView.layer.cornerRadius = 25
+            self.flagImageView.layer.cornerRadius = 40
             self.teamLogoImageView.layer.cornerRadius = 25
         }
         
         self.leagueNameLabel.text = team.league.name
         self.countryNameLabel.text = team.country.name
         self.teamNameLabel.text = team.team.name
-        
         self.teamNameTitleLabel.text = team.team.name
-        self.gamesTitleLabel.text = "Games Details"
-        self.pointsTitleLabel.text = "Points Details"
+        
+        self.gamesTitleLabel.attributedText = underLineAttributedStringGameTitle
+        self.gameDetailLabel.text = "Wins - All: \(team.games.wins.all.total)  Home: \(team.games.wins.home.total)  Away: \(team.games.wins.away.total) \n Losses - All: \(team.games.loses.all.total)  Home: \(team.games.loses.home.total)  Away: \(team.games.loses.away.total) \n Draws - All: \(team.games.draws.all.total)  Home: \(team.games.draws.home.total)  Away: \(team.games.draws.away.total) \n Played - All: \(team.games.played.all)  Home: \(team.games.played.home)  Away: \(team.games.played.away)"
+        
+        self.pointsTitleLabel.attributedText = underlineAttributePointsTitle
+        self.pointsDetailLabel.text = "Scored - All: \(team.points.forPoints.total.all)  Home: \(team.points.forPoints.total.home)  Away: \(team.points.forPoints.total.away) \n Average Scored \(team.points.forPoints.average.all) \n Scored Against - All: \(team.points.against.total.all)  Home: \(team.points.against.total.home)  Away: \(team.points.against.total.away) \n Average Scored Against \(team.points.against.average.all)"
+    }
+    
+    //MARK: Barbutton Item
+   @objc func addToFavorites() {
+       if let team = team {
+           let favorite = Favorite(imageURl: team.team.logo, teamName: team.team.name)
+           favorites.append(favorite)
+           print("Lets Check it out")
+
+       }
     }
 }
