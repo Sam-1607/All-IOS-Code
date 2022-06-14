@@ -10,6 +10,8 @@ import SDWebImageSVGCoder
 import AVKit
 import AVFoundation
 
+var musicPlayer: AVAudioPlayer?
+
 class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -22,6 +24,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        musicPlayer?.volume = 5
         filteredLeagues = leagues
         self.navigationController?.navigationBar.backItem?.backBarButtonItem?.tintColor = .white
         self.navigationController?.navigationBar.barStyle = .black
@@ -30,6 +33,7 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar(searchBar, textDidChange: searchBar.text!)
         fetchData()
         loadVideo(resource: "launchScreen", fileType: "mp4")
+        playSound(resource: "backgroundMusic", fileType: "mp3")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,6 +126,23 @@ class LeagueTableViewController: UITableViewController, UISearchBarDelegate {
 
        player?.seek(to: CMTime.zero)
        player?.play()
+    }
+    
+    //MARK: Background Musicplayer Config
+    func playSound(resource: String, fileType: String) {
+        guard let url = Bundle.main.url(forResource: resource, withExtension: fileType) else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            musicPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = musicPlayer else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
 
 }

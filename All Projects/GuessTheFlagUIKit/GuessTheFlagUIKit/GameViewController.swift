@@ -103,6 +103,7 @@ class GameViewController: UIViewController {
         }
         
         //MARK: Scoring Logic
+        
         if rightGuess < 10 {
             self.correctAnswersLabel.text = "correct: 0\(rightGuess)"
         } else {

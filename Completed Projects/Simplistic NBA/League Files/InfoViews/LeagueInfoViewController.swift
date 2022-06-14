@@ -53,6 +53,7 @@ class LeagueInfoViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backgroundColor = .black
         setLogo()
+        self.navigationController?.title = league?.name
         
     }
     

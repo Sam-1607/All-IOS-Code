@@ -7,6 +7,7 @@
 
 
 import UIKit
+import AVFoundation
 
 class TeamViewController: UIViewController {
     
@@ -28,10 +29,12 @@ class TeamViewController: UIViewController {
     
     var teamNetworkController = AllTeamsNetworkController()
     var team: TeamStats?
+    var player: AVAudioPlayer?
     var barButtonSystemItem = UIBarButtonItemAppearance()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: (Any).self, action: #selector(addToFavorites))
+        let favoriteBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: .none, action: #selector(addToFavorites))
+        self.navigationItem.rightBarButtonItem = favoriteBarButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {

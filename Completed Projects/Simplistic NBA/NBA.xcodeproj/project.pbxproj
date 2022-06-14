@@ -25,6 +25,8 @@
 		7D50EB362840740A00530B3D /* TeamsNetworkControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */; };
 		7D5EEB44284312580088F9F8 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5EEB43284312580088F9F8 /* TeamViewController.swift */; };
 		7D61F2DA2835CD6E0091E91C /* TeamsAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61F2D92835CD6E0091E91C /* TeamsAll.swift */; };
+		7D6605D12858003000305D33 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D6605D02858003000305D33 /* backgroundMusic.mp3 */; };
+		7D6605D32858072000305D33 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6605D22858072000305D33 /* SettingsViewController.swift */; };
 		7D7A5B3B282EABE30092F473 /* LeagueInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */; };
 		7D7F02CC283363ED00F5F5E6 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F02CB283363ED00F5F5E6 /* FavoritesCollectionViewController.swift */; };
 		7D92374B281C627300C43462 /* launchScreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D92374A281C627300C43462 /* launchScreen.mp4 */; };
@@ -56,6 +58,8 @@
 		7D50EB352840740A00530B3D /* TeamsNetworkControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsNetworkControllers.swift; sourceTree = "<group>"; };
 		7D5EEB43284312580088F9F8 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7D61F2D92835CD6E0091E91C /* TeamsAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsAll.swift; sourceTree = "<group>"; };
+		7D6605D02858003000305D33 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		7D6605D22858072000305D33 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7D7A5B3A282EABE30092F473 /* LeagueInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueInfoTableViewCell.swift; sourceTree = "<group>"; };
 		7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamLoader.mp4; sourceTree = "<group>"; };
 		7D7F02CA2833636D00F5F5E6 /* favoritesScreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = favoritesScreen.mp4; sourceTree = "<group>"; };
@@ -102,12 +106,13 @@
 		7D04A7452805CC500010F674 /* NBA */ = {
 			isa = PBXGroup;
 			children = (
+				7D6605D42858072600305D33 /* Settings */,
 				7D04A7462805CC500010F674 /* AppDelegate.swift */,
 				7D04A7482805CC500010F674 /* SceneDelegate.swift */,
 				7D04A74C2805CC500010F674 /* Main.storyboard */,
 				7D04A7512805CC530010F674 /* LaunchScreen.storyboard */,
+				7DECA00B28455970003E0768 /* Animations and Audio  */,
 				7D04A74F2805CC530010F674 /* Assets.xcassets */,
-				7DECA00B28455970003E0768 /* Animations */,
 				7D04A7542805CC530010F674 /* Info.plist */,
 			);
 			path = NBA;
@@ -150,6 +155,14 @@
 				7D50EB3328405B1700530B3D /* LeagueSeasonCollectionViewCell.swift */,
 			);
 			path = SeasonCollectionViews;
+			sourceTree = "<group>";
+		};
+		7D6605D42858072600305D33 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7D6605D22858072000305D33 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		7D74DB40281837690015E7CC /* League Files */ = {
@@ -217,15 +230,16 @@
 			path = InfoViews;
 			sourceTree = "<group>";
 		};
-		7DECA00B28455970003E0768 /* Animations */ = {
+		7DECA00B28455970003E0768 /* Animations and Audio  */ = {
 			isa = PBXGroup;
 			children = (
 				7D7F02C928335CD500F5F5E6 /* teamLoader.mp4 */,
 				7D287CAD28411B8C00E06E73 /* seasonAnimation.mp4 */,
 				7D92374A281C627300C43462 /* launchScreen.mp4 */,
+				7D6605D02858003000305D33 /* backgroundMusic.mp3 */,
 				7D7F02CA2833636D00F5F5E6 /* favoritesScreen.mp4 */,
 			);
-			path = Animations;
+			path = "Animations and Audio ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 				7D04A7532805CC530010F674 /* LaunchScreen.storyboard in Resources */,
 				7D04A7502805CC530010F674 /* Assets.xcassets in Resources */,
 				7D92374B281C627300C43462 /* launchScreen.mp4 in Resources */,
+				7D6605D12858003000305D33 /* backgroundMusic.mp3 in Resources */,
 				7D04A74E2805CC500010F674 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +334,7 @@
 				7D50EB2E28401A3C00530B3D /* LeagueCollectionCollectionViewController.swift in Sources */,
 				7D7F02CC283363ED00F5F5E6 /* FavoritesCollectionViewController.swift in Sources */,
 				7D287CAC284119FE00E06E73 /* AllTeamsCollectionViewController.swift in Sources */,
+				7D6605D32858072000305D33 /* SettingsViewController.swift in Sources */,
 				7D04A7472805CC500010F674 /* AppDelegate.swift in Sources */,
 				7DC5DB252854220000545662 /* Favorites.swift in Sources */,
 				7DA628A72806697300A04675 /* League.swift in Sources */,
