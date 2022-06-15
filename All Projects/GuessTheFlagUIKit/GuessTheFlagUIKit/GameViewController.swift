@@ -31,7 +31,20 @@ class GameViewController: UIViewController {
     
     
     @IBAction func restartButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Are You sure you want to quit", message: "All of your answers will be deleted", preferredStyle: .alert)
+        let quit = UIAlertAction(title: "Quit", style: .destructive) { (action) in
+            self.score = 0
+            self.wrongGuess = 0
+            self.rightGuess = 0
+            self.shuffle()
+            self.style()
+            self.fetchImage(urlParam: countries[0])
+        }
+        let ok = UIAlertAction(title: "Nevermind", style: .cancel)
         
+        alert.addAction(quit)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
     
     
