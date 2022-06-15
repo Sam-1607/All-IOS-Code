@@ -30,9 +30,9 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Button">
                                                     <attributes>
-                                                        <color key="NSColor" red="1" green="0.8708865768787557" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <color key="NSColor" red="1" green="0.97559760615223745" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -52,7 +52,7 @@
                                                 <fragment content="Button">
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="0.94858578452108377" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                        <font key="NSFont" size="13" name="Helvetica-Bold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -73,7 +73,7 @@
                                                 <fragment content="Button">
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="0.91479981359296336" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                        <font key="NSFont" size="13" name="Helvetica-Bold"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>

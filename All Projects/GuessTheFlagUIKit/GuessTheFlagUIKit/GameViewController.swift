@@ -19,11 +19,6 @@ class GameViewController: UIViewController {
     var userSelection = ""
     var possibleSelections = countries[0...2].shuffled()
     
-    var alert = UIAlertController(title: "Nice", message: "This is a test", preferredStyle: .alert)
-    let action = UIAlertAction(title: "Continue", style: .default)
-    
-    
-    
     @IBOutlet weak var correctAnswersLabel: UILabel!
     @IBOutlet weak var wrongAnswersLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -43,22 +38,18 @@ class GameViewController: UIViewController {
     @IBAction func guessButton1(_ sender: UIButton) {
         self.userSelection = possibleSelections[0]
         gameLogic(correctAnswer: countries[0])
-        
     }
     
     @IBAction func guessButton2(_ sender: UIButton) {
         self.userSelection = possibleSelections[1]
         gameLogic(correctAnswer: countries[0])
-        
-        print("")
     }
     
     @IBAction func guessButton3(_ sender: UIButton) {
         self.userSelection = possibleSelections[2]
         gameLogic(correctAnswer: countries[0])
-        
-        print("")
-    }
+           
+}
     
     
     override func viewDidLoad() {
@@ -81,24 +72,24 @@ class GameViewController: UIViewController {
                 score -= 1
             }
             let alert = UIAlertController(title: "You Suck!", message: "That is Incorrect! This is the flag of \(correctAnswer)!", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Continue", style: .cancel) { _ in
+            let alertAction = UIAlertAction(title: "Continue", style: .cancel) { (action) in
                 self.shuffle()
                 self.style()
                 self.fetchImage(urlParam: countries[0])
             }
-            self.alert.addAction(alertAction)
+            alert.addAction(alertAction)
             present(alert, animated: true, completion: nil)
             
         } else {
             score += 1
             rightGuess += 1
-            let alert = UIAlertController(title: "Great Job ", message: "That is the flag of \(correctAnswer)!", preferredStyle: UIAlertController.Style.alert)
-            let alertAction = UIAlertAction(title: "Continue", style: .cancel) { _ in
+            let alert = UIAlertController(title: "Great Job ", message: "That is the flag of \(correctAnswer)!", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Continue", style: .cancel) { (action)  in
                 self.shuffle()
                 self.style()
                 self.fetchImage(urlParam: countries[0])
             }
-            self.alert.addAction(alertAction)
+            alert.addAction(alertAction)
             present(alert, animated: true, completion: nil)
         }
         
@@ -125,6 +116,9 @@ class GameViewController: UIViewController {
     
     func shuffle() {
         countries.shuffle()
+        self.possibleSelections[0] = countries[0]
+        self.possibleSelections[1] = countries[1]
+        self.possibleSelections[2] = countries[2]
         possibleSelections.shuffle()
     }
     

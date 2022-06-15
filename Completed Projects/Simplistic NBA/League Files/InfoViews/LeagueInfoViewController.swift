@@ -52,9 +52,7 @@ class LeagueInfoViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backgroundColor = .black
-        setLogo()
-        self.navigationController?.title = league?.name
-        
+        setLogo()        
     }
     
     func setLogo() {
