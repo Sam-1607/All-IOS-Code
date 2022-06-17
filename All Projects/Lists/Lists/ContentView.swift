@@ -12,26 +12,46 @@ struct ContentView: View {
     @State var items: [ListItem] = []
     @State var itemName: String = ""
     @State var itemImportance: Int = 0
-    
+    @State var isDone: Bool = false
+    @State private var isShowing = false
+    @State var systemImage = "circle"
     
     var body: some View {
-        
-        
-        
         NavigationView {
-            List(items) { listItem in
-                Section {
-                    Text("\(listItem.item)")
-                        .font(.headline)
+            VStack {
+                List(items) { listItem in
+                    HStack {
+                        Text("\(listItem.item)")
+                            .font(.headline)
+                        Spacer()
+                        //                    Button {
+                        //                        changeButtonTitle()
+                        //                    } label: {
+                        //                        Label("", systemImage: systemImage)
+                        //                    }
+                    }
                 }
-                .onAppear(perform: {
-                    callMyData(items: self.items)
-                })
+                Button {
+                    isShowing.toggle()
+                    
+                }
+                
+            label: {
+                    Label("", systemImage: "trash")
+                        .font(.title)
+                }
+            .actionSheet(isPresented: $isShowing) {
+                ActionSheet(title: Text("Clear List"), message: Text("Are you sure you want to delete \(self.items.count) items"), buttons: [
+                    .cancel(Text("Nevermind")),
+                    .destructive(Text("Delete"), action: {
+                        self.items.removeAll()
+                    })
+                ])
             }
-            .onDisappear(perform: {
-                saveMyData(items: self.items)
-            })
-           
+               
+                
+                
+            }
             
             .toolbar {
                 Button("Add Item") {
@@ -41,7 +61,7 @@ struct ContentView: View {
                     } itemImortanceAction: { itemImportanceText in
                         let itemImportance = Int(itemImportanceText)
                         self.itemImportance = itemImportance ?? 0
-                        
+                        self.systemImage = "circle"
                         if self.itemImportance <= self.items.count {
                             if self.itemImportance > 0  {
                                 let myIndex = self.itemImportance - 1
@@ -59,11 +79,20 @@ struct ContentView: View {
                         print("Canceled")
                     }
                 }
-                
             }
-            .navigationTitle("Notes List")
+            .navigationTitle("Shopping List")
         }
     }
+    
+    func changeButtonTitle() {
+        isDone.toggle()
+        if isDone == true {
+            systemImage = "checkmark.circle.fill"
+        } else {
+            systemImage = "circle"
+        }
+    }
+    
     
     //MARK: Save and Calling Data
     
@@ -86,7 +115,6 @@ struct ContentView: View {
         
     }
 }
-
 
 
 struct ContentView_Previews: PreviewProvider {
