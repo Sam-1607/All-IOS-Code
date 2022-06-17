@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListItem: Identifiable {
+struct ListItem: Identifiable, Codable {
     var id = UUID()
     var item: String
 }

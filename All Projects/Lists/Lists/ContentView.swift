@@ -13,12 +13,26 @@ struct ContentView: View {
     @State var itemName: String = ""
     @State var itemImportance: Int = 0
     
+    
     var body: some View {
+        
+        
         
         NavigationView {
             List(items) { listItem in
-                Text("\(listItem.item)")
+                Section {
+                    Text("\(listItem.item)")
+                        .font(.headline)
+                }
+                .onAppear(perform: {
+                    callMyData(items: self.items)
+                })
             }
+            .onDisappear(perform: {
+                saveMyData(items: self.items)
+            })
+           
+            
             .toolbar {
                 Button("Add Item") {
                     showAlert(title: "Add an Item", message: "The second Texfield is for what location you would like this item added on to the list at.", itemPlaceHolderText: "item name", importanceLevelPlacholderText: "enter a number", okbuttonTitle: "OK", cancelButtonTitle: "Cancel") { itemName in
@@ -50,7 +64,30 @@ struct ContentView: View {
             .navigationTitle("Notes List")
         }
     }
+    
+    //MARK: Save and Calling Data
+    
+    func saveMyData(items: [ListItem]) {
+        let encoder = JSONEncoder()
+        if let encodedItems = try? encoder.encode(items) {
+            let defaults = UserDefaults.standard
+            defaults.set(encodedItems, forKey: "SavedItems")
+        }
+    }
+    
+    func callMyData(items: [ListItem]) {
+        let decoder = JSONDecoder()
+        
+        if let data = UserDefaults.standard.data(forKey: "SavedItems") {
+            if let decodedItems = try? decoder.decode([ListItem].self, from: data) {
+                self.items = decodedItems
+            }
+        }
+        
+    }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
