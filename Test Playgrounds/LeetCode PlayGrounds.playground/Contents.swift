@@ -34,3 +34,19 @@ func checkForMatch(numbers: [Int], target: Int) -> [Int]? {
     return nil
 }
 checkForMatch(numbers: somearray, target: sums)
+
+
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        for (i, x) in nums.enumerated() {
+            for y in nums[i+1 ..< nums.count] {
+                if x + y == target {
+                    return [x,y]
+                }
+                if x + y > target {
+                    break
+                }
+            }
+        }
+    }
+}
