@@ -14,7 +14,8 @@ struct ContentView: View {
     @State var itemImportance: Int = 0
     @State var isShowing = false
     @State var systemImage = "circle"
-    @State private var selection: UUID?
+    @State private var selection: Set<UUID> = []
+    @State private var trashMessage = ""
     
     var body: some View {
         NavigationView {
@@ -35,7 +36,7 @@ struct ContentView: View {
                 
                 HStack {
                 Button {
-                    showAlert(title: "Add an Item", message: "The second Texfield is for what location you would like this item added on to the list at.", itemPlaceHolderText: "item name", importanceLevelPlacholderText: "enter a number", okbuttonTitle: "OK", cancelButtonTitle: "Cancel") { itemName in
+                    showAlert(title: "Add an Item", message: "The second Texfield is for what location you would like this item added on to the list at, leave it empty if you don't care.", itemPlaceHolderText: "item name", importanceLevelPlacholderText: "enter a number", okbuttonTitle: "OK", cancelButtonTitle: "Cancel") { itemName in
                         self.itemName = itemName
                         
                     }
@@ -77,10 +78,17 @@ struct ContentView: View {
             }
             .padding(.trailing, 30)
             .actionSheet(isPresented: $isShowing) {
-                ActionSheet(title: Text("Clear List"), message: Text("Are you sure you want to delete \(self.items.count) items"), buttons: [
+            //    self.trashMessage = "Are you sure you want to delete \(self.items.count) items"
+                ActionSheet(title: Text("Clear List"), message: Text("Are you sure you want to delete these items"), buttons: [
                     .cancel(Text("Nevermind")),
                     .destructive(Text("Delete"), action: {
+                        if selection.count > 0 {
+                                let newItems = self.items.filter({selection.contains($0.id) == false })
+                                self.items = newItems
+                            
+                        } else {
                         self.items.removeAll()
+                        }
                     })
                 ])
             }
