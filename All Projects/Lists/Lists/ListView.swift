@@ -23,25 +23,23 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 List(items, selection: $selection) { listItem in
-                        HStack {
-                            Text("\(listItem.item)")
-                                .foregroundColor(.blue)
-                            Spacer()
-                        }
-                        
-                        .font(.headline)
-                        .padding()
-                        .background(.yellow)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                            Button("Delete", role: .destructive) {
-                                self.items.removeAll {
-                                    $0.id == listItem.id
-                                }
+                    HStack {
+                        Text("\(listItem.item)")
+                            .foregroundColor(.blue)
+                        Spacer()
+                    }
+                    .font(.headline)
+                    .padding()
+                    .background(.yellow)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button("Delete", role: .destructive) {
+                            self.items.removeAll {
+                                $0.id == listItem.id
                             }
                         }
+                    }
                 }
-                    
                 
                 HStack {
                     Button {
