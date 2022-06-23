@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728732863AD3E00AFDC00 /* GameView.swift */; };
+		7D1728762863E27800AFDC00 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728752863E27800AFDC00 /* Question.swift */; };
 		7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529234286294B700FF9D05 /* MathGameApp.swift */; };
-		7D529237286294B700FF9D05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529236286294B700FF9D05 /* ContentView.swift */; };
+		7D529237286294B700FF9D05 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529236286294B700FF9D05 /* GameSetup.swift */; };
 		7D529239286294B800FF9D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D529238286294B800FF9D05 /* Assets.xcassets */; };
 		7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D52923B286294B800FF9D05 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D1728732863AD3E00AFDC00 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		7D1728752863E27800AFDC00 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7D529231286294B700FF9D05 /* MathGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D529234286294B700FF9D05 /* MathGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGameApp.swift; sourceTree = "<group>"; };
-		7D529236286294B700FF9D05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7D529236286294B700FF9D05 /* GameSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetup.swift; sourceTree = "<group>"; };
 		7D529238286294B800FF9D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D52923B286294B800FF9D05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				7D529234286294B700FF9D05 /* MathGameApp.swift */,
-				7D529236286294B700FF9D05 /* ContentView.swift */,
+				7D529236286294B700FF9D05 /* GameSetup.swift */,
+				7D1728732863AD3E00AFDC00 /* GameView.swift */,
+				7D1728752863E27800AFDC00 /* Question.swift */,
 				7D529238286294B800FF9D05 /* Assets.xcassets */,
 				7D52923A286294B800FF9D05 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D529237286294B700FF9D05 /* ContentView.swift in Sources */,
+				7D529237286294B700FF9D05 /* GameSetup.swift in Sources */,
+				7D1728762863E27800AFDC00 /* Question.swift in Sources */,
+				7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */,
 				7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

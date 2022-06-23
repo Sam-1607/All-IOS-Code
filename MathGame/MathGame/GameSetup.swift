@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-var minNum = 2
-var maxNum = 12
-
-
-struct ContentView: View {
-    
+struct GameSetup: View {
+        
     @State var selectedMinNum = 2
     @State var selectedMaxNum = 12
+    @State var questionCount = "5"
+    @State var countIsInsufficent = false
+    @State var textFieldOverlayColor = Color.blue
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.init(.blue)]
@@ -31,6 +30,38 @@ struct ContentView: View {
                     
                     Image("math2")
                         .resizable()
+                    HStack {
+                        VStack {
+                        Text("Question Count")
+                            .font(.system(size: 25))
+                           // .padding()
+                            .background(.blue)
+                           // .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .foregroundColor(.yellow)
+                        Text("(Must be higher than 5) \n Default is set to 5")
+                                .fontWeight(.bold)
+                                .padding(.bottom, 5)
+                                .foregroundColor(.yellow)
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding(10)
+                        .background(.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                        TextField("Enter", text: $questionCount)
+                            .frame(width: 150, height: 50, alignment: .center)
+                            .overlay(
+                                Capsule(style: .continuous)
+                                    .stroke(textFieldOverlayColor, lineWidth: 10)
+                            )
+                            .foregroundColor(.blue)
+                            .multilineTextAlignment(.center)
+                            .keyboardType(.numberPad)
+                            .onChange(of: questionCount) { newValue in
+                                textFieldOverlayColor = .blue
+                            }
+                        
+                    }
+                    .padding()
                     
                     
                     HStack(alignment: .center) {
@@ -43,7 +74,7 @@ struct ContentView: View {
                         Picker("Please Select Range for Question (Lower = Harder)", selection: $selectedMinNum) {
                             ForEach(minimumMultiplayableNumber, id: \.self) { number in
                                 Button {
-                                    minNum = number
+                                    self.selectedMinNum = number
                                 } label: {
                                     Text("\(number)")
                                 }
@@ -68,7 +99,7 @@ struct ContentView: View {
                     Picker("Please Select Range for Question (Lower = Harder)", selection: $selectedMaxNum) {
                         ForEach(maxMultiplyableNumber, id: \.self) { number in
                             Button {
-                                maxNum = number
+                                self.selectedMaxNum = number
                             } label: {
                                 Text("\(number)")
                                     .font(.headline)
@@ -91,10 +122,9 @@ struct ContentView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                         .padding(.top)
                         .foregroundColor(.yellow)
-                        
                     
-                    Button {
-                        
+                    NavigationLink {
+                        GameView(gameInfo: Game(minNum: selectedMinNum, maxNum: selectedMaxNum, questionCount: questionCount))
                     } label: {
                         HStack {
                             Text("Ready")
@@ -112,7 +142,14 @@ struct ContentView: View {
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.top, 40)
-
+                    .disabled(self.questionCount == "0" || self.questionCount == "1" || self.questionCount == "2" || self.questionCount == "3" || self.questionCount == "4")
+                    
+                    .onTapGesture {
+                        if self.questionCount == "0" || self.questionCount == "1" || self.questionCount == "2" || self.questionCount == "3" || self.questionCount == "4" {
+                            self.textFieldOverlayColor = .red
+                        }
+                    }
+                    
                     Spacer()
                     
                    
@@ -130,14 +167,19 @@ struct ContentView: View {
                     }
                 }
             })
+            
             .navigationTitle("Math-Dash")
             
+           
         }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameSetup()
     }
 }
+
