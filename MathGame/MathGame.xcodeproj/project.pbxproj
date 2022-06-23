@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728732863AD3E00AFDC00 /* GameView.swift */; };
 		7D1728762863E27800AFDC00 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728752863E27800AFDC00 /* Question.swift */; };
+		7D1D3D822864D4AE005FE51C /* ToastBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */; };
+		7D1D3D842864D6A9005FE51C /* Settings Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D832864D6A9005FE51C /* Settings Controller.swift */; };
+		7D1D3D862864D74D005FE51C /* MusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */; };
+		7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D3D892864DA28005FE51C /* background.mp3 */; };
 		7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529234286294B700FF9D05 /* MathGameApp.swift */; };
 		7D529237286294B700FF9D05 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529236286294B700FF9D05 /* GameSetup.swift */; };
 		7D529239286294B800FF9D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D529238286294B800FF9D05 /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		7D1728732863AD3E00AFDC00 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		7D1728752863E27800AFDC00 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBannerController.swift; sourceTree = "<group>"; };
+		7D1D3D832864D6A9005FE51C /* Settings Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings Controller.swift"; sourceTree = "<group>"; };
+		7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerController.swift; sourceTree = "<group>"; };
+		7D1D3D892864DA28005FE51C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		7D529231286294B700FF9D05 /* MathGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D529234286294B700FF9D05 /* MathGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGameApp.swift; sourceTree = "<group>"; };
 		7D529236286294B700FF9D05 /* GameSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetup.swift; sourceTree = "<group>"; };
@@ -57,8 +65,12 @@
 			children = (
 				7D529234286294B700FF9D05 /* MathGameApp.swift */,
 				7D529236286294B700FF9D05 /* GameSetup.swift */,
+				7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */,
 				7D1728732863AD3E00AFDC00 /* GameView.swift */,
+				7D1D3D832864D6A9005FE51C /* Settings Controller.swift */,
+				7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */,
 				7D1728752863E27800AFDC00 /* Question.swift */,
+				7D1D3D892864DA28005FE51C /* background.mp3 */,
 				7D529238286294B800FF9D05 /* Assets.xcassets */,
 				7D52923A286294B800FF9D05 /* Preview Content */,
 			);
@@ -132,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */,
+				7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */,
 				7D529239286294B800FF9D05 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,10 +156,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1D3D862864D74D005FE51C /* MusicPlayerController.swift in Sources */,
 				7D529237286294B700FF9D05 /* GameSetup.swift in Sources */,
 				7D1728762863E27800AFDC00 /* Question.swift in Sources */,
+				7D1D3D822864D4AE005FE51C /* ToastBannerController.swift in Sources */,
 				7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */,
 				7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */,
+				7D1D3D842864D6A9005FE51C /* Settings Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
