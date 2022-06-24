@@ -124,7 +124,9 @@ struct GameSetup: View {
                             .foregroundColor(.yellow)
                         
                         NavigationLink {
-                            GameView(gameInfo: Game(minNum: selectedMinNum, maxNum: selectedMaxNum, questionCount: questionCount))
+                            let numArray = Array(selectedMinNum...selectedMaxNum).shuffled()
+                            let questionCount = Int(questionCount) ?? 5
+                            GameView(gameInfo: numArray, questionCount: questionCount)
                         } label: {
                             HStack {
                                 Text("Ready")

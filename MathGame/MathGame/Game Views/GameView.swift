@@ -16,13 +16,12 @@ struct GameView: View {
     @State var incorrectAnswered = 0
     @State var heartsFull: [String] = ["heart.fill", "heart.fill","heart.fill"]
     
-    var gameInfo: Game
+    var gameInfo: [Int]
+    var questionCount: Int
     
     var body: some View {
         
-        let possibleQuestion = Array(gameInfo.minNum...gameInfo.maxNum).shuffled()
-        let num1 = possibleQuestion[0]
-        let num2 = possibleQuestion[1]
+       
         
         NavigationView {
             ZStack {
@@ -39,7 +38,7 @@ struct GameView: View {
                         .foregroundColor(.yellow)
                     
                     HStack(spacing: 40) {
-                        Text("\(num1)")
+                        Text("\(gameInfo[0])")
                             .font(.system(size: 45))
                             .fontWeight(.bold)
                             .padding(20)
@@ -54,7 +53,7 @@ struct GameView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.blue)
                         
-                        Text("\(num2)")
+                        Text("\(gameInfo[1])")
                             .font(.system(size: 45))
                             .fontWeight(.bold)
                             .padding(20)
@@ -117,16 +116,13 @@ struct GameView: View {
                         }
                         
                         Button {
-                            self.correctAnser = num1 * num2
-                            
                             guard let userAnswer = Int(userAnswer) else { return }
                             if userAnswer == correctAnser {
                                 // Play some sound
                                 // Confetti Animation if possible
                                 
                             } else {
-                                self.heartsFull[2] = "heart"
-                                self.lives -= 1
+                                //Hearts Dissappear unitl alert is triggered to quit or continure playing. 
                             }
                             
                         } label: {
@@ -155,6 +151,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameInfo: Game(minNum: 2, maxNum: 12, questionCount: "5"))
+        GameView(gameInfo: [2,12], questionCount: 5)
     }
 }
