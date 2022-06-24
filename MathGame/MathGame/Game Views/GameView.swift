@@ -15,13 +15,13 @@ struct GameView: View {
     @State var lives = 3
     @State var incorrectAnswered = 0
     @State var heartsFull: [String] = ["heart.fill", "heart.fill","heart.fill"]
+    @State var gameInfo: [Int] 
     
-    var gameInfo: [Int]
     var questionCount: Int
-    
+    var aduioPlayer = SoundPlayer()
     var body: some View {
         
-       
+        
         
         NavigationView {
             ZStack {
@@ -116,15 +116,7 @@ struct GameView: View {
                         }
                         
                         Button {
-                            guard let userAnswer = Int(userAnswer) else { return }
-                            if userAnswer == correctAnser {
-                                // Play some sound
-                                // Confetti Animation if possible
-                                
-                            } else {
-                                //Hearts Dissappear unitl alert is triggered to quit or continure playing. 
-                            }
-                            
+                           gameLogic()
                         } label: {
                             Label("", systemImage: "checkmark")
                                 .foregroundColor(.yellow)
@@ -137,16 +129,36 @@ struct GameView: View {
                         }
                     }
                     .padding(.top, 50)
+                    .padding(.bottom)
+                    
                 }
-                
-                
-                
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        
     }
     
+    func gameLogic() {
+        self.correctAnser = gameInfo[0] * gameInfo[1]
+        
+        guard let userAnswer = Int(userAnswer) else { return }
+        if userAnswer == correctAnser {
+            self.aduioPlayer.playCorrectSound(soundName: "correct", soundType: "mp3")
+            self.gameInfo.shuffle()
+            
+        } else {
+            self.lives -= 1
+            self.aduioPlayer.playIncorrect(soundName: "incorrect", soundType: "mp3")
+            
+            if lives == 2 {
+                self.heartsFull[2] = "heart"
+            } else if lives == 1 {
+                self.heartsFull[1] = "heart"
+            } else if lives == 0 {
+                //Trigger some alert
+                self.heartsFull[0] = "heart"
+            }
+        }
+    }
 }
 
 struct GameView_Previews: PreviewProvider {

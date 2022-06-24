@@ -13,6 +13,9 @@
 		7D1D3D842864D6A9005FE51C /* Settings Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D832864D6A9005FE51C /* Settings Controller.swift */; };
 		7D1D3D862864D74D005FE51C /* MusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */; };
 		7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D3D892864DA28005FE51C /* background.mp3 */; };
+		7D2DEC4E286627B800D0F298 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2DEC4D286627B700D0F298 /* correct.mp3 */; };
+		7D2DEC5128662B1100D0F298 /* wrongQuestionCount.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2DEC5028662B1100D0F298 /* wrongQuestionCount.mp3 */; };
+		7D2DEC5328662B1A00D0F298 /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2DEC5228662B1A00D0F298 /* incorrect.mp3 */; };
 		7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529234286294B700FF9D05 /* MathGameApp.swift */; };
 		7D529237286294B700FF9D05 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529236286294B700FF9D05 /* GameSetup.swift */; };
 		7D529239286294B800FF9D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D529238286294B800FF9D05 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 		7D1D3D832864D6A9005FE51C /* Settings Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings Controller.swift"; sourceTree = "<group>"; };
 		7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerController.swift; sourceTree = "<group>"; };
 		7D1D3D892864DA28005FE51C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		7D2DEC4D286627B700D0F298 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		7D2DEC5028662B1100D0F298 /* wrongQuestionCount.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongQuestionCount.mp3; sourceTree = "<group>"; };
+		7D2DEC5228662B1A00D0F298 /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
 		7D529231286294B700FF9D05 /* MathGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D529234286294B700FF9D05 /* MathGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGameApp.swift; sourceTree = "<group>"; };
 		7D529236286294B700FF9D05 /* GameSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetup.swift; sourceTree = "<group>"; };
@@ -44,6 +50,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D2DEC4F28662AFF00D0F298 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				7D2DEC5028662B1100D0F298 /* wrongQuestionCount.mp3 */,
+				7D1D3D892864DA28005FE51C /* background.mp3 */,
+				7D2DEC5228662B1A00D0F298 /* incorrect.mp3 */,
+				7D2DEC4D286627B700D0F298 /* correct.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		7D529228286294B700FF9D05 = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +84,7 @@
 				7D7BAE92286507C100EA8AB6 /* Game Views */,
 				7D7BAE93286507D500EA8AB6 /* Logic Controllers */,
 				7D7BAE94286507E400EA8AB6 /* Models */,
-				7D1D3D892864DA28005FE51C /* background.mp3 */,
+				7D2DEC4F28662AFF00D0F298 /* Audio */,
 				7D529238286294B800FF9D05 /* Assets.xcassets */,
 				7D52923A286294B800FF9D05 /* Preview Content */,
 			);
@@ -167,9 +184,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D2DEC5128662B1100D0F298 /* wrongQuestionCount.mp3 in Resources */,
 				7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */,
 				7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */,
 				7D529239286294B800FF9D05 /* Assets.xcassets in Resources */,
+				7D2DEC5328662B1A00D0F298 /* incorrect.mp3 in Resources */,
+				7D2DEC4E286627B800D0F298 /* correct.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
