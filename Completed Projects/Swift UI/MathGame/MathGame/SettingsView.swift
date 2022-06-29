@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct SettingsView: View {
     
-    @State var musicLabelSystemImage = "speaker.wave.3.fill"
-    @State var soundEffectsLabelSystemImage = "speaker.wave.3.fill"
-    @State var musicState = true
-    @State var soundEffectState = true
+    @State var musicLabelSystemImage: String?
+    @State var soundEffectsLabelSystemImage: String?
+    @State var musicState: Bool?
+    @State var soundEffectState: Bool?
     
     
     var body: some View {
@@ -30,16 +31,23 @@ struct SettingsView: View {
                         .underline()
                     
                     Button {
-                        self.musicState.toggle()
+                        guard musicState != nil else {
+                            return
+                        }
+                        self.musicState!.toggle()
                         changeLabels()
                     } label: {
-                        Image(systemName: "\(musicLabelSystemImage)")
+                        Image(systemName: "\(musicLabelSystemImage ?? "speaker.wave.3.fill")")
                     }
                    
                     .foregroundColor(.yellow)
                     .padding()
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .onLoad {
+                        self.musicState = true
+                        self.musicLabelSystemImage = "speaker.wave.3.fill"
+                    }
                 }
                     VStack {
                         Text("Effects")
@@ -49,16 +57,22 @@ struct SettingsView: View {
                             .underline()
                         
                         Button {
-                            self.soundEffectState.toggle()
-                            changeLabels()
+                            if soundEffectState != nil {
+                                self.soundEffectState!.toggle()
+                                changeLabels()
+                            }
+                            
                         } label: {
-                            Image(systemName: "\(soundEffectsLabelSystemImage)")
+                            Image(systemName: "\(soundEffectsLabelSystemImage ?? "speaker.wave.3.fill")")
                         }
                         .foregroundColor(.yellow)
                         .padding()
                         .background(.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
-                        
+                        .onLoad {
+                            self.soundEffectState = true
+                            self.soundEffectsLabelSystemImage = "speaker.wave.3.fill"
+                        }
                     }
                 }
                    Spacer()
@@ -77,12 +91,12 @@ struct SettingsView: View {
         
         if self.soundEffectState == true {
             self.soundEffectsLabelSystemImage = "speaker.wave.3.fill"
-            audioPlayer.incorrectPlayer?.play()
-            audioPlayer.correctPlayer?.play()
+            audioPlayer.incorrectPlayer = AVAudioPlayer()
+            audioPlayer.correctPlayer = AVAudioPlayer()
         } else {
             self.soundEffectsLabelSystemImage = "speaker.slash.fill"
-            audioPlayer.correctPlayer?.pause()
-            audioPlayer.correctPlayer?.pause()
+            audioPlayer.incorrectPlayer = nil
+            audioPlayer.correctPlayer = nil
         }
     }
     

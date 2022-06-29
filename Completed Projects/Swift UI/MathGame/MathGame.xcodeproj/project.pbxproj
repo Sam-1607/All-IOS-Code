@@ -20,6 +20,7 @@
 		7D529239286294B800FF9D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D529238286294B800FF9D05 /* Assets.xcassets */; };
 		7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D52923B286294B800FF9D05 /* Preview Assets.xcassets */; };
 		7DBA9E04286A5920002058F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA9E03286A5920002058F5 /* SettingsView.swift */; };
+		7DFC8622286BE84E0060A2D5 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		7D529238286294B800FF9D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D52923B286294B800FF9D05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7DBA9E03286A5920002058F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */,
 				7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */,
+				7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				7D1D3D822864D4AE005FE51C /* ToastBannerController.swift in Sources */,
 				7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */,
 				7D529235286294B700FF9D05 /* MathGameApp.swift in Sources */,
+				7DFC8622286BE84E0060A2D5 /* ViewDidLoadModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
