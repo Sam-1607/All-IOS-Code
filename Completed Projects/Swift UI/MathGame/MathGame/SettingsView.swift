@@ -8,13 +8,16 @@
 import SwiftUI
 import AVKit
 
+var musicState = true
+var soundEffectState = true
+var soundPlayer = SoundController()
+
 struct SettingsView: View {
     
-    @State var musicLabelSystemImage: String?
-    @State var soundEffectsLabelSystemImage: String?
-    @State var musicState: Bool?
-    @State var soundEffectState: Bool?
-    
+    @State var musicLabelSystemImage = "speaker.wave.3.fill"
+    @State var soundEffectsLabelSystemImage = "speaker.wave.3.fill"
+   
+
     
     var body: some View {
         NavigationView {
@@ -31,22 +34,19 @@ struct SettingsView: View {
                         .underline()
                     
                     Button {
-                        guard musicState != nil else {
-                            return
-                        }
-                        self.musicState!.toggle()
+                        
+                        musicState.toggle()
                         changeLabels()
                     } label: {
-                        Image(systemName: "\(musicLabelSystemImage ?? "speaker.wave.3.fill")")
+                        Image(systemName: "\(musicLabelSystemImage)")
                     }
                    
                     .foregroundColor(.yellow)
                     .padding()
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
-                    .onLoad {
-                        self.musicState = true
-                        self.musicLabelSystemImage = "speaker.wave.3.fill"
+                    .onAppear {
+                        changeLabels()
                     }
                 }
                     VStack {
@@ -57,21 +57,19 @@ struct SettingsView: View {
                             .underline()
                         
                         Button {
-                            if soundEffectState != nil {
-                                self.soundEffectState!.toggle()
+                                soundEffectState.toggle()
                                 changeLabels()
-                            }
+                            
                             
                         } label: {
-                            Image(systemName: "\(soundEffectsLabelSystemImage ?? "speaker.wave.3.fill")")
+                            Image(systemName: "\(soundEffectsLabelSystemImage)")
                         }
                         .foregroundColor(.yellow)
                         .padding()
                         .background(.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
-                        .onLoad {
-                            self.soundEffectState = true
-                            self.soundEffectsLabelSystemImage = "speaker.wave.3.fill"
+                        .onAppear {
+                            changeLabels()
                         }
                     }
                 }
@@ -81,22 +79,22 @@ struct SettingsView: View {
         }
     }
     func changeLabels() {
-        if self.musicState == true {
+        if musicState == true {
             self.musicLabelSystemImage = "speaker.wave.3.fill"
-            audioPlayer.player?.play()
+//            audioPlayer.player?.play()
         } else {
             self.musicLabelSystemImage = "speaker.slash.fill"
-            audioPlayer.player?.pause()
+//            audioPlayer.player?.pause()
         }
         
-        if self.soundEffectState == true {
+        if soundEffectState == true {
             self.soundEffectsLabelSystemImage = "speaker.wave.3.fill"
-            audioPlayer.incorrectPlayer = AVAudioPlayer()
-            audioPlayer.correctPlayer = AVAudioPlayer()
+//            audioPlayer.incorrectPlayer = AVAudioPlayer()
+//            audioPlayer.correctPlayer = AVAudioPlayer()
         } else {
             self.soundEffectsLabelSystemImage = "speaker.slash.fill"
-            audioPlayer.incorrectPlayer = nil
-            audioPlayer.correctPlayer = nil
+//            audioPlayer.incorrectPlayer = nil
+//            audioPlayer.correctPlayer = nil
         }
     }
     

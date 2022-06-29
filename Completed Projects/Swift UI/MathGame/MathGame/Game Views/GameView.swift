@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import AVFAudio
 
-var aduioPlayer = SoundPlayer()
+//var aduioPlayer = SoundPlayer()
 
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
@@ -31,6 +32,7 @@ struct GameView: View {
     @State var hasWon = false
     @State var lostAlertText = "You have run out of lives, feel free to switch the settings and try again"
     @State var lostAlertButtonText = "Go Home 😞"
+    @State var player: AVAudioPlayer?
     
     var questionCount: Int
     var body: some View {
@@ -180,7 +182,7 @@ struct GameView: View {
         
         guard let userAnswer = Int(userAnswer) else { return }
         if userAnswer == correctAnser {
-            aduioPlayer.playCorrectSound(soundName: "correct", soundType: "mp3")
+            soundPlayer.playsound(soundName: "correct", soundType: "mp3", somePlayer: &player)
             self.gameInfo.shuffle()
             self.answeredAmount += 1
             self.userAnswer = ""
@@ -197,8 +199,7 @@ struct GameView: View {
             
         } else {
             self.lives -= 1
-            aduioPlayer.playIncorrect(soundName: "incorrect", soundType: "mp3")
-            
+            soundPlayer.playsound(soundName: "incorrect", soundType: "mp3", somePlayer: &player)
             if lives == 2 {
                 self.heartsFull[2] = "heart"
             } else if lives == 1 {

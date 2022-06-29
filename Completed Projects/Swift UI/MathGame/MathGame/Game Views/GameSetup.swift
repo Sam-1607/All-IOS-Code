@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import AVFAudio
 
-var audioPlayer = SoundPlayer()
+//var audioPlayer = SoundPlayer()
 
 struct GameSetup: View {
     
@@ -18,6 +19,7 @@ struct GameSetup: View {
     @State var textFieldOverlayColor = Color.blue
     @State var isShowingToast = false
     @State private var showingSettingsPop = false
+    @State var player: AVAudioPlayer?
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.init(.blue)]
@@ -152,7 +154,7 @@ struct GameSetup: View {
                             if self.questionCount == "0" || self.questionCount == "1" || self.questionCount == "2" || self.questionCount == "3" || self.questionCount == "4" || self.questionCount == "0" {
                                 self.textFieldOverlayColor = .red
                                 self.isShowingToast.toggle()
-                                audioPlayer.playWrongQuestionCount(soundName: "wrongQuestionCount", soundType: "mp3")
+                                soundPlayer.playsound(soundName: "wrongQuestionCount", soundType: "mp3", somePlayer: &player)
                             }
                         }
                     }
@@ -176,7 +178,7 @@ struct GameSetup: View {
             }
         }
         .onAppear {
-            audioPlayer.playMusic(soundName: "background", soundType: "mp3")
+            soundPlayer.playsound(soundName: "background", soundType: "mp3", somePlayer: &player)
         }
     }
 }
