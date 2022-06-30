@@ -8,7 +8,6 @@
 import SwiftUI
 import AVFAudio
 
-//var aduioPlayer = SoundPlayer()
 
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
@@ -18,7 +17,7 @@ struct GameView: View {
     @State var lives = 3
     @State var incorrectAnswered = 0
     @State var heartsFull: [String] = ["heart.fill", "heart.fill","heart.fill"]
-    @State var gameInfo: [Int] 
+    @State var gameInfo: [Int]
     @State var quitButtonTitleText = "Quit"
     @State var isShowing = false
     @State var answeredAmount = 0
@@ -143,7 +142,10 @@ struct GameView: View {
                         }
                         
                         Button {
-                           gameLogic()
+                            gameLogic()
+                            if hasWon == true && soundEffectState == true {
+                                soundPlayer.playSoundEffect(soundName: "win", soundType: "mp3", somePlayer: &self.player)
+                            }
                         } label: {
                             Label("", systemImage: "checkmark")
                                 .foregroundColor(.yellow)
@@ -182,7 +184,9 @@ struct GameView: View {
         
         guard let userAnswer = Int(userAnswer) else { return }
         if userAnswer == correctAnser {
-            soundPlayer.playsound(soundName: "correct", soundType: "mp3", somePlayer: &player)
+            if soundEffectState == true {
+                soundPlayer.playSoundEffect(soundName: "correct", soundType: "mp3", somePlayer: &self.player)
+            }
             self.gameInfo.shuffle()
             self.answeredAmount += 1
             self.userAnswer = ""
@@ -199,7 +203,9 @@ struct GameView: View {
             
         } else {
             self.lives -= 1
-            soundPlayer.playsound(soundName: "incorrect", soundType: "mp3", somePlayer: &player)
+            if soundEffectState == true {
+                soundPlayer.playSoundEffect(soundName: "incorrect", soundType: "mp3", somePlayer: &self.player)
+            }
             if lives == 2 {
                 self.heartsFull[2] = "heart"
             } else if lives == 1 {

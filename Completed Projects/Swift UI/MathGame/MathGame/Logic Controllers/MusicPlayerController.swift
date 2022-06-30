@@ -91,22 +91,43 @@ import AVKit
 //}
 //
 class SoundController {
-    func playsound(soundName: String, soundType: String, somePlayer: inout AVAudioPlayer?) {
+    func playBackgroundMusic(soundName: String, soundType: String, somePlayer: inout AVAudioPlayer?) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: soundType) else { return }
-
+        
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-
+            
             somePlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
             guard let player = somePlayer else { return }
-
+            
             player.play()
-
+            
         } catch let error {
             print(error.localizedDescription)
         }
+        
     }
     
+    
+    func playSoundEffect(soundName: String, soundType: String, somePlayer: inout AVAudioPlayer?) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: soundType) else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            somePlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = somePlayer else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 }

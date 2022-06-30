@@ -81,20 +81,16 @@ struct SettingsView: View {
     func changeLabels() {
         if musicState == true {
             self.musicLabelSystemImage = "speaker.wave.3.fill"
-//            audioPlayer.player?.play()
+            globalPlayer?.play()
         } else {
             self.musicLabelSystemImage = "speaker.slash.fill"
-//            audioPlayer.player?.pause()
+            globalPlayer?.pause()
         }
         
         if soundEffectState == true {
             self.soundEffectsLabelSystemImage = "speaker.wave.3.fill"
-//            audioPlayer.incorrectPlayer = AVAudioPlayer()
-//            audioPlayer.correctPlayer = AVAudioPlayer()
         } else {
             self.soundEffectsLabelSystemImage = "speaker.slash.fill"
-//            audioPlayer.incorrectPlayer = nil
-//            audioPlayer.correctPlayer = nil
         }
     }
     

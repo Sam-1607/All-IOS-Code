@@ -19,6 +19,7 @@
 		7D529237286294B700FF9D05 /* GameSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D529236286294B700FF9D05 /* GameSetup.swift */; };
 		7D529239286294B800FF9D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D529238286294B800FF9D05 /* Assets.xcassets */; };
 		7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D52923B286294B800FF9D05 /* Preview Assets.xcassets */; };
+		7D886998286D1F47002A8D57 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D886997286D1F47002A8D57 /* win.mp3 */; };
 		7DBA9E04286A5920002058F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBA9E03286A5920002058F5 /* SettingsView.swift */; };
 		7DFC8622286BE84E0060A2D5 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		7D529236286294B700FF9D05 /* GameSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetup.swift; sourceTree = "<group>"; };
 		7D529238286294B800FF9D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D52923B286294B800FF9D05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7D886997286D1F47002A8D57 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		7DBA9E03286A5920002058F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				7D2DEC5028662B1100D0F298 /* wrongQuestionCount.mp3 */,
+				7D886997286D1F47002A8D57 /* win.mp3 */,
 				7D1D3D892864DA28005FE51C /* background.mp3 */,
 				7D2DEC5228662B1A00D0F298 /* incorrect.mp3 */,
 				7D2DEC4D286627B700D0F298 /* correct.mp3 */,
@@ -189,6 +192,7 @@
 			files = (
 				7D2DEC5128662B1100D0F298 /* wrongQuestionCount.mp3 in Resources */,
 				7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */,
+				7D886998286D1F47002A8D57 /* win.mp3 in Resources */,
 				7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */,
 				7D529239286294B800FF9D05 /* Assets.xcassets in Resources */,
 				7D2DEC5328662B1A00D0F298 /* incorrect.mp3 in Resources */,

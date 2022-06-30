@@ -9,6 +9,7 @@ import SwiftUI
 import AVFAudio
 
 //var audioPlayer = SoundPlayer()
+var globalPlayer: AVAudioPlayer?
 
 struct GameSetup: View {
     
@@ -19,8 +20,7 @@ struct GameSetup: View {
     @State var textFieldOverlayColor = Color.blue
     @State var isShowingToast = false
     @State private var showingSettingsPop = false
-    @State var player: AVAudioPlayer?
-    
+    @State private var player: AVAudioPlayer?
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.init(.blue)]
     }
@@ -45,7 +45,7 @@ struct GameSetup: View {
                                     .padding(9)
                                     .background(.blue)
                                     .foregroundColor(.yellow)
-                               
+                                
                             }
                             .padding(10)
                             .background(.blue)
@@ -56,7 +56,6 @@ struct GameSetup: View {
                                     Capsule(style: .continuous)
                                         .stroke(textFieldOverlayColor, lineWidth: 10)
                                 )
-                                //.font(.largeTitle)
                                 .foregroundColor(.blue)
                                 .multilineTextAlignment(.center)
                                 .keyboardType(.numberPad)
@@ -154,31 +153,35 @@ struct GameSetup: View {
                             if self.questionCount == "0" || self.questionCount == "1" || self.questionCount == "2" || self.questionCount == "3" || self.questionCount == "4" || self.questionCount == "0" {
                                 self.textFieldOverlayColor = .red
                                 self.isShowingToast.toggle()
-                                soundPlayer.playsound(soundName: "wrongQuestionCount", soundType: "mp3", somePlayer: &player)
+                                if soundEffectState == true {
+                                    soundPlayer.playSoundEffect(soundName: "wrongQuestionCount", soundType: "mp3", somePlayer: &self.player)
+                                }
                             }
                         }
                     }
                 }
                 Spacer()
-                .toolbar(content: {
-                    Button {
-                        showingSettingsPop.toggle()
-                    } label: {
-                        VStack(alignment: .center) {
-                            Label("", systemImage: "gear")
-                                .font(.system(size: 29))
+                    .toolbar(content: {
+                        Button {
+                            showingSettingsPop.toggle()
+                        } label: {
+                            VStack(alignment: .center) {
+                                Label("", systemImage: "gear")
+                                    .font(.system(size: 29))
+                            }
                         }
-                    }
-                })
-                .popover(isPresented: $showingSettingsPop, content: {
-                    SettingsView()
-                })
-                .toast(isShowing: $isShowingToast, duration: 2)
-                .navigationTitle("Math-Dash")
+                    })
+                    .popover(isPresented: $showingSettingsPop, content: {
+                        SettingsView()
+                    })
+                    .toast(isShowing: $isShowingToast, duration: 2)
+                    .navigationTitle("Math-Dash")
             }
         }
         .onAppear {
-            soundPlayer.playsound(soundName: "background", soundType: "mp3", somePlayer: &player)
+           
+                soundPlayer.playBackgroundMusic(soundName: "background", soundType: "mp3", somePlayer: &globalPlayer)
+            
         }
     }
 }
