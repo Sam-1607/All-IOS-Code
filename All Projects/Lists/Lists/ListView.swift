@@ -91,7 +91,7 @@ struct ContentView: View {
                             if selection.count > 0 {
                                 let newItems = self.items.filter({selection.contains($0.id) == false })
                                 self.items = newItems
-                            } else {
+                            } else if selection.isEmpty {
                                 self.items.removeAll()
                             }
                         })
