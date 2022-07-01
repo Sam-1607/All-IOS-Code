@@ -16,7 +16,7 @@ struct SettingsView: View {
     
     @State var musicLabelSystemImage = "speaker.wave.3.fill"
     @State var soundEffectsLabelSystemImage = "speaker.wave.3.fill"
-   
+    @State var player: AVAudioPlayer?
 
     
     var body: some View {
@@ -32,15 +32,15 @@ struct SettingsView: View {
                         .foregroundColor(.blue)
                         .font(.system(size: 30))
                         .underline()
-                    
-                    Button {
                         
+                    Button {
+                        soundPlayer.playSoundEffect(soundName: "sound", soundType: "mp3", somePlayer: &self.player)
+
                         musicState.toggle()
                         changeLabels()
                     } label: {
                         Image(systemName: "\(musicLabelSystemImage)")
                     }
-                   
                     .foregroundColor(.yellow)
                     .padding()
                     .background(.blue)
@@ -59,8 +59,8 @@ struct SettingsView: View {
                         Button {
                                 soundEffectState.toggle()
                                 changeLabels()
-                            
-                            
+                            soundPlayer.playSoundEffect(soundName: "sound", soundType: "mp3", somePlayer: &self.player)
+
                         } label: {
                             Image(systemName: "\(soundEffectsLabelSystemImage)")
                         }
@@ -92,7 +92,9 @@ struct SettingsView: View {
         } else {
             self.soundEffectsLabelSystemImage = "speaker.slash.fill"
         }
+            
     }
+        
     
 }
 

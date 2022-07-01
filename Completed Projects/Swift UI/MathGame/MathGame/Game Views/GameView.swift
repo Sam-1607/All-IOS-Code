@@ -42,6 +42,10 @@ struct GameView: View {
             ZStack {
                 Color.yellow
                     .ignoresSafeArea()
+                    .onAppear {
+                        soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
+
+                    }
                 VStack(alignment: .center) {
                     
                     Text("WHAT IS?")
@@ -110,6 +114,9 @@ struct GameView: View {
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
                     }
+                    .onChange(of: userAnswer) { newValue in
+                        soundPlayer.playSoundEffect(soundName: "boop", soundType: "mp3", somePlayer: &self.player)
+                    }
                     
                     HStack {
                         Button {
@@ -137,6 +144,7 @@ struct GameView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                                 Button("Quit", role: .destructive) {
                                     dismiss()
+                                    soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
                                 }
                             }
                         }
@@ -161,7 +169,8 @@ struct GameView: View {
                     .padding(.bottom)
                     .alert("Nice Job You finsihed all \(questionCount) Questions!!", isPresented: $endAlertIsShowing) {
                         Button("Home") {
-                            
+                            dismiss()
+                            soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
                         }
                         Button("Contine Playing") {
                             
@@ -170,6 +179,7 @@ struct GameView: View {
                     .alert(lostAlertText, isPresented: $lostAlertShowing) {
                         Button(lostAlertButtonText) {
                             dismiss()
+                            soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
                         }
                     }
                     
@@ -199,6 +209,7 @@ struct GameView: View {
                 self.quitButtonTitleText = "Home"
                 self.continueAlertButtonText = "Keep Playing 🤩"
                 self.overAchieverAlert = "Nice Job you sure are an overachiver WOW!!"
+                
             }
             
         } else {

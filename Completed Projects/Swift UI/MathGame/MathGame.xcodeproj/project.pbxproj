@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728732863AD3E00AFDC00 /* GameView.swift */; };
 		7D1728762863E27800AFDC00 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1728752863E27800AFDC00 /* Question.swift */; };
+		7D1B5682286FA0C4008AE726 /* woosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B5681286FA0C4008AE726 /* woosh.mp3 */; };
+		7D1B5684286FA436008AE726 /* ButtonRealeaseLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B5683286FA436008AE726 /* ButtonRealeaseLogic.swift */; };
+		7D1B5688286FA5BF008AE726 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B5687286FA5BF008AE726 /* select.mp3 */; };
+		7D1B568A286FA705008AE726 /* set.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B5689286FA705008AE726 /* set.mp3 */; };
+		7D1B568C286FA9AA008AE726 /* boop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B568B286FA9AA008AE726 /* boop.mp3 */; };
+		7D1B5692286FAE06008AE726 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B5691286FAE06008AE726 /* sound.mp3 */; };
 		7D1D3D822864D4AE005FE51C /* ToastBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */; };
 		7D1D3D862864D74D005FE51C /* MusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */; };
 		7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D3D892864DA28005FE51C /* background.mp3 */; };
@@ -27,6 +33,12 @@
 /* Begin PBXFileReference section */
 		7D1728732863AD3E00AFDC00 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		7D1728752863E27800AFDC00 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		7D1B5681286FA0C4008AE726 /* woosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woosh.mp3; sourceTree = "<group>"; };
+		7D1B5683286FA436008AE726 /* ButtonRealeaseLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRealeaseLogic.swift; sourceTree = "<group>"; };
+		7D1B5687286FA5BF008AE726 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select.mp3; sourceTree = "<group>"; };
+		7D1B5689286FA705008AE726 /* set.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = set.mp3; sourceTree = "<group>"; };
+		7D1B568B286FA9AA008AE726 /* boop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boop.mp3; sourceTree = "<group>"; };
+		7D1B5691286FAE06008AE726 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBannerController.swift; sourceTree = "<group>"; };
 		7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerController.swift; sourceTree = "<group>"; };
 		7D1D3D892864DA28005FE51C /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -59,8 +71,13 @@
 			children = (
 				7D2DEC5028662B1100D0F298 /* wrongQuestionCount.mp3 */,
 				7D886997286D1F47002A8D57 /* win.mp3 */,
+				7D1B5689286FA705008AE726 /* set.mp3 */,
+				7D1B5691286FAE06008AE726 /* sound.mp3 */,
+				7D1B5687286FA5BF008AE726 /* select.mp3 */,
 				7D1D3D892864DA28005FE51C /* background.mp3 */,
+				7D1B5681286FA0C4008AE726 /* woosh.mp3 */,
 				7D2DEC5228662B1A00D0F298 /* incorrect.mp3 */,
+				7D1B568B286FA9AA008AE726 /* boop.mp3 */,
 				7D2DEC4D286627B700D0F298 /* correct.mp3 */,
 			);
 			path = Audio;
@@ -118,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1D3D812864D4AE005FE51C /* ToastBannerController.swift */,
+				7D1B5683286FA436008AE726 /* ButtonRealeaseLogic.swift */,
 				7D1D3D852864D74D005FE51C /* MusicPlayerController.swift */,
 				7DFC8621286BE84E0060A2D5 /* ViewDidLoadModifier.swift */,
 			);
@@ -190,13 +208,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1B5688286FA5BF008AE726 /* select.mp3 in Resources */,
 				7D2DEC5128662B1100D0F298 /* wrongQuestionCount.mp3 in Resources */,
 				7D52923C286294B800FF9D05 /* Preview Assets.xcassets in Resources */,
+				7D1B568A286FA705008AE726 /* set.mp3 in Resources */,
+				7D1B5692286FAE06008AE726 /* sound.mp3 in Resources */,
 				7D886998286D1F47002A8D57 /* win.mp3 in Resources */,
+				7D1B568C286FA9AA008AE726 /* boop.mp3 in Resources */,
 				7D1D3D8A2864DA28005FE51C /* background.mp3 in Resources */,
 				7D529239286294B800FF9D05 /* Assets.xcassets in Resources */,
 				7D2DEC5328662B1A00D0F298 /* incorrect.mp3 in Resources */,
 				7D2DEC4E286627B800D0F298 /* correct.mp3 in Resources */,
+				7D1B5682286FA0C4008AE726 /* woosh.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +233,7 @@
 				7DBA9E04286A5920002058F5 /* SettingsView.swift in Sources */,
 				7D1D3D862864D74D005FE51C /* MusicPlayerController.swift in Sources */,
 				7D529237286294B700FF9D05 /* GameSetup.swift in Sources */,
+				7D1B5684286FA436008AE726 /* ButtonRealeaseLogic.swift in Sources */,
 				7D1728762863E27800AFDC00 /* Question.swift in Sources */,
 				7D1D3D822864D4AE005FE51C /* ToastBannerController.swift in Sources */,
 				7D1728742863AD3E00AFDC00 /* GameView.swift in Sources */,

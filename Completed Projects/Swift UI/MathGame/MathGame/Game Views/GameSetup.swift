@@ -61,6 +61,7 @@ struct GameSetup: View {
                                 .keyboardType(.numberPad)
                                 .onChange(of: questionCount) { newValue in
                                     textFieldOverlayColor = .blue
+                                    soundPlayer.playSoundEffect(soundName: "set", soundType: "mp3", somePlayer: &self.player)
                                 }
                             
                         }
@@ -81,8 +82,15 @@ struct GameSetup: View {
                                     } label: {
                                         Text("\(number)")
                                     }
+                                    
                                 }
+                                
                             }
+                            .modifier(PressActions(onPress: {
+                                
+                            }, onRelease: {
+                                soundPlayer.playSoundEffect(soundName: "select", soundType: "mp3", somePlayer: &self.player)
+                            }))
                             .frame(width: 150, height: 55)
                             .overlay(
                                 Capsule(style: .continuous)
@@ -107,8 +115,16 @@ struct GameSetup: View {
                                         Text("\(number)")
                                             .font(.headline)
                                     }
+                                    
+                                    
                                 }
+                                
                             }
+                            .modifier(PressActions(onPress: {
+                                
+                            }, onRelease: {
+                                soundPlayer.playSoundEffect(soundName: "select", soundType: "mp3", somePlayer: &self.player)
+                            }))
                             .frame(width: 150, height: 55)
                             .overlay(
                                 Capsule(style: .continuous)
@@ -130,6 +146,7 @@ struct GameSetup: View {
                             let numArray = Array(selectedMinNum...selectedMaxNum).shuffled()
                             let questionCount = Int(questionCount) ?? 5
                             GameView(gameInfo: numArray, questionCount: questionCount)
+                            
                         } label: {
                             HStack {
                                 Text("Ready")
@@ -141,6 +158,7 @@ struct GameSetup: View {
                                     .foregroundColor(.yellow)
                             }
                         }
+
                         .padding()
                         .padding(.leading, 30)
                         .padding(.trailing, 30)
@@ -164,12 +182,16 @@ struct GameSetup: View {
                     .toolbar(content: {
                         Button {
                             showingSettingsPop.toggle()
+                            if soundEffectState == true {
+                                soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
+                            }
                         } label: {
                             VStack(alignment: .center) {
                                 Label("", systemImage: "gear")
                                     .font(.system(size: 29))
                             }
                         }
+                        
                     })
                     .popover(isPresented: $showingSettingsPop, content: {
                         SettingsView()
