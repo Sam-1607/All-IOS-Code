@@ -116,7 +116,9 @@ struct GameView: View {
                     }
                     .onChange(of: userAnswer) { newValue in
                         soundPlayer.playSoundEffect(soundName: "boop", soundType: "mp3", somePlayer: &self.player)
+                        
                     }
+                    
                     
                     HStack {
                         Button {

@@ -25,12 +25,12 @@ struct ContentView: View {
                 List(items, selection: $selection) { listItem in
                     HStack {
                         Text("\(listItem.item)")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.white)
                         Spacer()
                     }
                     .font(.headline)
                     .padding()
-                    .background(.yellow)
+                    .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button("Delete", role: .destructive) {
@@ -48,6 +48,8 @@ struct ContentView: View {
                             
                         }
                     itemImortanceAction: { itemImportanceText in
+                        
+                        if itemName != "" {
                         let itemImportance = Int(itemImportanceText)
                         self.itemImportance = itemImportance ?? 0
                         if self.itemImportance <= self.items.count {
@@ -62,6 +64,9 @@ struct ContentView: View {
                         } else {
                             self.items.append(ListItem(item: itemName))
                             self.itemImportance = 0
+                        }
+                        } else {
+                            return
                         }
                     } secondaryAction: {
                         print("Canceled")
@@ -88,11 +93,12 @@ struct ContentView: View {
                     ActionSheet(title: Text("Clear"), message: Text("Are you sure you want to delete these items?"), buttons: [
                         .cancel(Text("Nevermind")),
                         .destructive(Text("Delete"), action: {
-                            if selection.count > 0 {
+                            if selection.isEmpty {
+                                self.items.removeAll()
+                            } else  {
                                 let newItems = self.items.filter({selection.contains($0.id) == false })
                                 self.items = newItems
-                            } else if selection.isEmpty {
-                                self.items.removeAll()
+                                selection.removeAll()
                             }
                         })
                     ])
