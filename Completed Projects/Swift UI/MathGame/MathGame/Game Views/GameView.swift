@@ -8,7 +8,6 @@
 import SwiftUI
 import AVFAudio
 
-
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
     
@@ -32,6 +31,9 @@ struct GameView: View {
     @State var lostAlertText = "You have run out of lives, feel free to switch the settings and try again"
     @State var lostAlertButtonText = "Go Home 😞"
     @State var player: AVAudioPlayer?
+    @State var playWinningSound = 0
+    
+    
     
     var questionCount: Int
     var body: some View {
@@ -114,10 +116,7 @@ struct GameView: View {
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
                     }
-                    .onChange(of: userAnswer) { newValue in
-                        soundPlayer.playSoundEffect(soundName: "boop", soundType: "mp3", somePlayer: &self.player)
-                        
-                    }
+                    
                     
                     
                     HStack {
@@ -153,9 +152,6 @@ struct GameView: View {
                         
                         Button {
                             gameLogic()
-                            if hasWon == true && soundEffectState == true {
-                                soundPlayer.playSoundEffect(soundName: "win", soundType: "mp3", somePlayer: &self.player)
-                            }
                         } label: {
                             Label("", systemImage: "checkmark")
                                 .foregroundColor(.yellow)
@@ -198,8 +194,8 @@ struct GameView: View {
         if userAnswer == correctAnser {
             if soundEffectState == true {
                 soundPlayer.playSoundEffect(soundName: "correct", soundType: "mp3", somePlayer: &self.player)
+                self.gameInfo.shuffle()
             }
-            self.gameInfo.shuffle()
             self.answeredAmount += 1
             self.userAnswer = ""
             if answeredAmount ==  questionCount {
@@ -211,6 +207,8 @@ struct GameView: View {
                 self.quitButtonTitleText = "Home"
                 self.continueAlertButtonText = "Keep Playing 🤩"
                 self.overAchieverAlert = "Nice Job you sure are an overachiver WOW!!"
+                self.playWinningSound += 1
+                soundPlayer.playSoundEffect(soundName: "win", soundType: "mp3", somePlayer: &self.player)
                 
             }
             
@@ -234,6 +232,9 @@ struct GameView: View {
             }
         }
     }
+   
+
+
 }
 
 struct GameView_Previews: PreviewProvider {
