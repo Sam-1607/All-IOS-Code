@@ -18,30 +18,47 @@ class GameViewController: UIViewController {
     }
     
     var words = ["wrinkled", "water","simping", "whatever", "through", "lemons", "grand", "difficult", "encyclopedia", "cellar"].shuffled()
-    lazy var correctAnswer = words[0]
-    var ungessedCharacter = "_ "
+    lazy var wordToGuess: [Character] = []
     var guessProgress = ""
-
+    var guess: Character!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.guessProgress = String(repeating: "_ ", count: wordToGuess.count)
+        guessedLetterTextField.placeholder = "Enter A Letter"
+        
+    }
+    
+    func guessLogic() {
+        
+        
+        
+        if guessedLetterTextField.text == "" {
+            guessedLetterTextField.placeholder = "Must Enter Letter"
+        } else if guessedLetterTextField.text!.count > 1 {
+            guessedLetterTextField.text = ""
+            guessedLetterTextField.placeholder = "Only one Letter"
+        } else {
+            guess = Character(guessedLetterTextField.text!.lowercased())
+        }
+        
         
         
     }
     
-    func guessLogic(words: [String], unguessedCharacter: String, correctAnswer: String) {
-        var wordToGuess = words[0]
+    func checkString() {
         
-        for char in wordToGuess {
-            self.guessProgress.append(unguessedCharacter)
-            self.wordToGuessProgressLabel.text = guessProgress
+        if wordToGuess.contains(where: guess) {
             
-            guard let userGuess = self.guessedLetterTextField.text else  { return }
-            var guess = Character(userGuess)
-            
-            if guess == char {
-                 
-            }
         }
+        
     }
 }
 
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
