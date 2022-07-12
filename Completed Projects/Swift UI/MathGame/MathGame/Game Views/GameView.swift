@@ -32,6 +32,7 @@ struct GameView: View {
     @State var lostAlertButtonText = "Go Home 😞"
     @State var player: AVAudioPlayer?
     @State var playWinningSound = 0
+    @State var winSoundPlaying = false
     
     
     
@@ -171,7 +172,7 @@ struct GameView: View {
                             soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
                         }
                         Button("Contine Playing") {
-                            
+                            self.winSoundPlaying = false
                         }
                     }
                     .alert(lostAlertText, isPresented: $lostAlertShowing) {
@@ -200,6 +201,7 @@ struct GameView: View {
             self.userAnswer = ""
             if answeredAmount ==  questionCount {
                 self.hasWon = true
+                winSoundPlaying = true
                 self.endAlertIsShowing.toggle()
                 self.quitButtonSystemImage = "house.fill"
                 self.quitButtonForeground = .white
@@ -208,8 +210,9 @@ struct GameView: View {
                 self.continueAlertButtonText = "Keep Playing 🤩"
                 self.overAchieverAlert = "Nice Job you sure are an overachiver WOW!!"
                 self.playWinningSound += 1
+                if winSoundPlaying == true {
                 soundPlayer.playSoundEffect(soundName: "win", soundType: "mp3", somePlayer: &self.player)
-                
+                }
             }
             
         } else {

@@ -29,7 +29,7 @@ struct GameSetup: View {
     var maxMultiplyableNumber = [8,9,10,11,12]
     var body: some View {
         NavigationView {
-            ZStack(alignment: .top) {
+            ZStack {
                 ZStack {
                     Color.yellow
                         .ignoresSafeArea()
@@ -158,7 +158,7 @@ struct GameSetup: View {
                                     .foregroundColor(.yellow)
                             }
                         }
-
+                        
                         .padding()
                         .padding(.leading, 30)
                         .padding(.trailing, 30)
@@ -178,31 +178,31 @@ struct GameSetup: View {
                         }
                     }
                 }
-                Spacer()
-                    .toolbar(content: {
-                        Button {
-                            showingSettingsPop.toggle()
-                            if soundEffectState == true {
-                                soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
-                            }
-                        } label: {
-                            VStack(alignment: .center) {
-                                Label("", systemImage: "gear")
-                                    .font(.system(size: 29))
-                            }
+                //Spacer()
+                .toolbar(content: {
+                    Button {
+                        showingSettingsPop.toggle()
+                        if soundEffectState == true {
+                            soundPlayer.playSoundEffect(soundName: "woosh", soundType: "mp3", somePlayer: &self.player)
                         }
-                        
-                    })
-                    .popover(isPresented: $showingSettingsPop, content: {
-                        SettingsView()
-                    })
-                    .toast(isShowing: $isShowingToast, duration: 2)
-                    .navigationTitle("Math-Dash")
+                    } label: {
+                        VStack(alignment: .center) {
+                            Label("", systemImage: "gear")
+                                .font(.system(size: 29))
+                        }
+                    }
+                    
+                })
+                .popover(isPresented: $showingSettingsPop, content: {
+                    SettingsView()
+                })
+                .toast(isShowing: $isShowingToast, duration: 2)
+                .navigationTitle("Math-Dash")
             }
         }
         .onAppear {
-           
-                soundPlayer.playBackgroundMusic(soundName: "background", soundType: "mp3", somePlayer: &globalPlayer)
+            
+            //  soundPlayer.playBackgroundMusic(soundName: "background", soundType: "mp3", somePlayer: &globalPlayer)
             
         }
     }
