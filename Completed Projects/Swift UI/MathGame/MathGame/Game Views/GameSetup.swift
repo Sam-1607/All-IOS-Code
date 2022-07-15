@@ -202,7 +202,7 @@ struct GameSetup: View {
         }
         .onAppear {
             
-            //  soundPlayer.playBackgroundMusic(soundName: "background", soundType: "mp3", somePlayer: &globalPlayer)
+             soundPlayer.playBackgroundMusic(soundName: "background", soundType: "mp3", somePlayer: &globalPlayer)
             
         }
     }
