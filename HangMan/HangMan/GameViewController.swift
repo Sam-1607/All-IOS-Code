@@ -15,13 +15,15 @@ class GameViewController: UIViewController {
     
     
     @IBAction func guessSubmitButton(_ sender: UIButton) {
-        
+        guessLogic()
     }
     
     var wordsArray = ["wrinkled", "water","simping", "whatever", "through", "lemons", "grand", "difficult", "encyclopedia", "cellar"].shuffled()
     var incorrectLetters = [Character]()
     var usedLetters = [Character]()
     var displayWordArray = [Character]()
+    
+    var isShowing = false
     
     var word = ""
     var displayWord = ""
@@ -63,7 +65,6 @@ class GameViewController: UIViewController {
     }
     
     func checkString() {
-        
         if usedLetters.contains(guess) {
             for i in 0...word.count - 1 {
                 if guess == usedLetters[i] {
@@ -81,7 +82,18 @@ class GameViewController: UIViewController {
     
     func checkIfWon() {
         if incorrectLetters.count == 8 {
-            // THEY LOST TRIGGER SOME ALERT
+            var alert = UIAlertController(title: "Nice Job!", message: "You Guess the word see if you can do it faster next time", preferredStyle: .alert)
+            
+            var alertAction = UIAlertAction(title: "Continue", style: .cancel) { action in
+                self.wordsArray.shuffle()
+                self.guessedLetterTextField.placeholder = "Enter A Letter"
+                self.word = self.wordsArray.randomElement()!.lowercased()
+                self.wordToGuessProgressLabel.text =  String(repeating: "_ ", count: self.word.count)
+                self.displayWordArray = Array(self.displayWord)
+                self.usedLetters = Array(self.word)
+                self.incorrectLettersGuessed.text = ""
+                self.incorrectLetters = []
+            }
             
         } else if displayWord.contains("_ ") {
             
